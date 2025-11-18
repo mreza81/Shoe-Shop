@@ -7,7 +7,13 @@ export function Swiper1() {
 			El({
 				element: "div",
 				className:
-					"w-full h-[657px] bg-no-repeat bg-[url('public/assets/images/W1.jpg')] ",
+					"w-full h-[602px] bg-no-repeat bg-cover bg-[url('public/assets/images/W1.jpg')] ",
+			}),
+			El({
+				element: "div",
+				className:
+					"max-w-[380px] text-[32px] font-semibold text-center mt-8 mx-6",
+				innerText: "We provide high quality products just for you",
 			}),
 		],
 	});

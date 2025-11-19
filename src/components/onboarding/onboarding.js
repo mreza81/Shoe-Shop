@@ -1,5 +1,6 @@
 import { Onboarding1 } from "./onboarding1.js";
 import { Onboarding2 } from "./onboarding2.js";
+import { Slider } from "./onboarding3/Slider.js";
 import { Swiper1 } from "./onboarding3/swiper1.js";
 import { Swiper2 } from "./onboarding3/swiper2.js";
 import { Swiper3 } from "./onboarding3/swiper3.js";
@@ -14,5 +15,5 @@ export function Onboarding() {
 	// 	container.appendChild(secound);
 	// }, 3000);
 	// return container;
-	return Swiper3();
+	return Slider();
 }

@@ -1,1 +1,40 @@
 @import "tailwindcss";
+@import "swiper/css";
+@import "swiper/css/navigation";
+@import "swiper/css/pagination";
+.swiper-pagination-bullet {
+	width: 30px;
+	height: 3px;
+	border-radius: 0;
+	background: black !important;
+	opacity: 0.5 !important;
+	margin-bottom: 119px !important;
+}
+
+.swiper-pagination-bullet-active {
+	background: black !important;
+	opacity: 1 !important;
+}
+.swiper-button-next svg {
+	display: none;
+}
+.swiper-button-next::after {
+	content: "next";
+}
+.swiper-button-disabled {
+	display: none;
+}
+.swiper-button-next {
+	position: absolute;
+	top: 880px !important;
+	left: 24px !important;
+	width: 380px !important;
+	height: 47px !important;
+	background-color: black;
+	color: white;
+	border-radius: 30px;
+	text-align: center;
+	line-height: 47px;
+	font-size: 16px;
+	cursor: pointer;
+}

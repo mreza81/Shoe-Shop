@@ -12,7 +12,7 @@ export function Swiper2() {
 			El({
 				element: "div",
 				className:
-					"max-w-[380px] text-[32px] font-semibold text-center mt-8 mx-6",
+					"max-w-[380px] text-[32px] font-semibold text-center mt-8 mx-6 leading-tight",
 				innerText: "Your satisfaction is our number one periority",
 			}),
 		],

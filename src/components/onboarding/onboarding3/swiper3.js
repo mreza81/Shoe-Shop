@@ -15,6 +15,13 @@ export function Swiper3() {
 					"max-w-[380px] text-[32px] font-semibold text-center mt-8 mx-6 leading-tight",
 				innerText: "Let's fulfill your fashion needs with shoearight now!",
 			}),
+			El({
+				element: "button",
+				innerText: "Get Started",
+				id: "start-btn",
+				className:
+					"w-[380px] h-[47px] bg-black text-white text-center rounded-[30px] absolute left-6 bottom-8 z-10 text-[14px] font-medium",
+			}),
 		],
 	});
 }

@@ -20,13 +20,15 @@
 }
 .swiper-button-next::after {
 	content: "next";
+	font-weight: 500px;
 }
-.swiper-button-disabled {
+.swiper-button-next.swiper-button-disabled {
 	display: none;
 }
 .swiper-button-next {
 	position: absolute;
-	top: 880px !important;
+	top: 870px !important;
+
 	left: 24px !important;
 	width: 380px !important;
 	height: 47px !important;

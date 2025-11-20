@@ -33,6 +33,7 @@ export function Signup() {
 						element: "input",
 						placeholder: "Username",
 						type: "email",
+						id: "userName-Signup",
 						className:
 							"w-[380px] mx-6 px-8 py-2 bg-[#FAFAFA] border border-[2px] border-[#FAFAFA] focus:outline-none focus:border-black rounded-1",
 						eventListener: [
@@ -40,7 +41,7 @@ export function Signup() {
 								event: "focus",
 								callback: (e) => {
 									const img = document.getElementById("envelop-signup");
-									console.log(img);
+
 									img.classList.add("opacity-100");
 								},
 							},
@@ -96,6 +97,7 @@ export function Signup() {
 						className:
 							"w-[380px] h-[47px] bg-black text-white text-center rounded-[30px] mx-6 mt-[230px] opacity-50 cursor-pointer",
 						innerText: "Signup",
+						id: "signup-btn",
 					}),
 					El({
 						element: "img",

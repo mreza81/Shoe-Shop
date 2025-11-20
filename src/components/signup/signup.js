@@ -32,14 +32,56 @@ export function Signup() {
 					El({
 						element: "input",
 						placeholder: "Username",
-						className: "w-[380px] mx-6 px-8 py-2 bg-[#FAFAFA]",
-						children: [],
+						className:
+							"w-[380px] mx-6 px-8 py-2 bg-[#FAFAFA] border border-[2px] border-[#FAFAFA] focus:outline-none focus:border-black rounded-1",
+						eventListener: [
+							{
+								event: "focus",
+								callback: (e) => {
+									const img = document.getElementById("envelop-signup");
+									console.log(img);
+									img.classList.add("opacity-100");
+								},
+							},
+							{
+								event: "blur",
+								callback: () => {
+									const img = document.getElementById("envelop-signup");
+									img.classList.remove("opacity-100");
+									img.classList.add("opacity-50");
+								},
+							},
+						],
 					}),
 					El({
 						element: "input",
 						placeholder: "Password",
-						className: "w-[380px] mx-6 px-8 py-2 mt-[21px] bg-[#FAFAFA]",
+						className:
+							"w-[380px] mx-6 px-8 py-2 mt-[21px] bg-[#FAFAFA] border border-[2px] border-[#FAFAFA] focus:outline-none focus:border-black rounded-1",
 						type: "password",
+						eventListener: [
+							{
+								event: "focus",
+								callback: (e) => {
+									const img = document.getElementById("eye-signup");
+									const img2 = document.getElementById("lock-signup");
+									img.classList.add("opacity-100");
+
+									img2.classList.add("opacity-100");
+								},
+							},
+							{
+								event: "blur",
+								callback: () => {
+									const img = document.getElementById("eye-signup");
+									const img2 = document.getElementById("lock-signup");
+									img.classList.remove("opacity-100");
+									img.classList.add("opacity-50");
+									img2.classList.remove("opacity-100");
+									img2.classList.add("opacity-50");
+								},
+							},
+						],
 					}),
 					El({
 						element: "button",
@@ -56,20 +98,23 @@ export function Signup() {
 					El({
 						element: "img",
 						src: "public/assets/images/envelope-fill.png",
+						id: "envelop-signup",
 						className:
-							"w-3.5 h-3.5 absolute left-[37px] top-[476px] opacity-50",
+							"input-img w-3.5 h-3.5 absolute left-[37px] top-[478px] opacity-50",
 					}),
 					El({
 						element: "img",
 						src: "public/assets/images/lock-fill.png",
+						id: "lock-signup",
 						className:
-							"w-3.5 h-3.5 absolute left-[37px] top-[537px] opacity-50",
+							"input-img w-3.5 h-3.5 absolute left-[37px] top-[542px] opacity-50",
 					}),
 					El({
 						element: "img",
 						src: "public/assets/images/eye-slash-fill.png",
+						id: "eye-signup",
 						className:
-							"w-3.5 h-3.5 absolute left-[375px] top-[537px] opacity-50",
+							"input-img w-3.5 h-3.5 absolute left-[375px] top-[542px] opacity-50",
 					}),
 				],
 			}),

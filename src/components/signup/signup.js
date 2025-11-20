@@ -32,6 +32,7 @@ export function Signup() {
 					El({
 						element: "input",
 						placeholder: "Username",
+						type: "email",
 						className:
 							"w-[380px] mx-6 px-8 py-2 bg-[#FAFAFA] border border-[2px] border-[#FAFAFA] focus:outline-none focus:border-black rounded-1",
 						eventListener: [
@@ -59,6 +60,7 @@ export function Signup() {
 						className:
 							"w-[380px] mx-6 px-8 py-2 mt-[21px] bg-[#FAFAFA] border border-[2px] border-[#FAFAFA] focus:outline-none focus:border-black rounded-1",
 						type: "password",
+						id: "password-signup",
 						eventListener: [
 							{
 								event: "focus",
@@ -114,7 +116,22 @@ export function Signup() {
 						src: "public/assets/images/eye-slash-fill.png",
 						id: "eye-signup",
 						className:
-							"input-img w-3.5 h-3.5 absolute left-[375px] top-[542px] opacity-50",
+							"input-img w-3.5 h-3.5 absolute left-[375px] top-[542px] opacity-50 cursor-pointer",
+						eventListener: [
+							{
+								event: "click",
+								callback: () => {
+									let passwordInput =
+										document.getElementById("password-signup");
+									if (passwordInput.type == "password") {
+										passwordInput.type = "text";
+								
+									} else if (passwordInput.type == "text") {
+										passwordInput.type = "password";
+									}
+								},
+							},
+						],
 					}),
 				],
 			}),

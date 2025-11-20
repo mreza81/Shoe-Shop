@@ -32,9 +32,28 @@ export function Login() {
 					El({
 						element: "input",
 						placeholder: "Username",
+						type: "email",
+
 						className:
 							"w-[380px] mx-6 px-8 py-2 bg-[#FAFAFA] border border-[2px] border-[#FAFAFA] focus:outline-none focus:border-black",
-						children: [],
+						eventListener: [
+							{
+								event: "focus",
+								callback: (e) => {
+									const img = document.getElementById("envelop-login");
+									console.log(img);
+									img.classList.add("opacity-100");
+								},
+							},
+							{
+								event: "blur",
+								callback: () => {
+									const img = document.getElementById("envelop-login");
+									img.classList.remove("opacity-100");
+									img.classList.add("opacity-50");
+								},
+							},
+						],
 					}),
 					El({
 						element: "input",
@@ -42,6 +61,30 @@ export function Login() {
 						className:
 							"w-[380px] mx-6 px-8 py-2 mt-[21px] bg-[#FAFAFA] border border-[2px] border-[#FAFAFA] focus:outline-none focus:border-black",
 						type: "password",
+						id: "password-login",
+						eventListener: [
+							{
+								event: "focus",
+								callback: (e) => {
+									const img = document.getElementById("eye-login");
+									const img2 = document.getElementById("lock-login");
+									img.classList.add("opacity-100");
+
+									img2.classList.add("opacity-100");
+								},
+							},
+							{
+								event: "blur",
+								callback: () => {
+									const img = document.getElementById("eye-login");
+									const img2 = document.getElementById("lock-login");
+									img.classList.remove("opacity-100");
+									img.classList.add("opacity-50");
+									img2.classList.remove("opacity-100");
+									img2.classList.add("opacity-50");
+								},
+							},
+						],
 					}),
 					El({
 						element: "button",
@@ -52,26 +95,42 @@ export function Login() {
 					El({
 						element: "button",
 						className:
-							"w-[380px] h-[47px] bg-black text-white text-center rounded-[30px] mx-6 mt-[230px] opacity-50",
+							"w-[380px] h-[47px] bg-black text-white text-center rounded-[30px] mx-6 mt-[230px] opacity-50 disabled:",
 						innerText: "Signin",
 					}),
 					El({
 						element: "img",
 						src: "public/assets/images/envelope-fill.png",
+						id: "envelop-login",
 						className:
 							"w-3.5 h-3.5 absolute left-[37px] top-[478px] opacity-50",
 					}),
 					El({
 						element: "img",
 						src: "public/assets/images/lock-fill.png",
+						id: "lock-login",
 						className:
 							"w-3.5 h-3.5 absolute left-[37px] top-[542px] opacity-50",
 					}),
 					El({
 						element: "img",
 						src: "public/assets/images/eye-slash-fill.png",
+						id: "eye-login",
 						className:
 							"w-3.5 h-3.5 absolute left-[375px] top-[542px] opacity-50",
+						eventListener: [
+							{
+								event: "click",
+								callback: () => {
+									let passwordInput = document.getElementById("password-login");
+									if (passwordInput.type == "password") {
+										console.log(passwordInput.type);
+									} else if (passwordInput.type == "text") {
+										passwordInput.type = "password";
+									}
+								},
+							},
+						],
 					}),
 				],
 			}),

@@ -1,12 +1,16 @@
 import Swiper from "swiper";
 import { Navigation, Pagination } from "swiper/modules";
-Swiper.use([Navigation, Pagination]);
 import { OnboardingPage } from "./pages/onboardingPage.js";
+Swiper.use([Navigation, Pagination]);
+
 import "./style.css";
+import { router } from "./utils/router.js";
 
 const app = document.getElementById("app");
 const container = document.createElement("div");
 app.appendChild(container);
 container.append(OnboardingPage());
 
+router.addRoute("/onboarding", OnboardingPage);
+router.init(container);
 // Swiper

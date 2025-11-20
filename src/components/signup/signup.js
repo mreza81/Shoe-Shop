@@ -89,12 +89,12 @@ export function Signup() {
 						element: "button",
 						innerText: "Login",
 						className:
-							"text-black bg-white text-center w-full mt-[30px] font-medium text-3.5",
+							"text-black bg-white text-center w-[47px] mt-[30px] mx-[190px] font-medium text-3.5 cursor-pointer",
 					}),
 					El({
 						element: "button",
 						className:
-							"w-[380px] h-[47px] bg-black text-white text-center rounded-[30px] mx-6 mt-[230px] opacity-50",
+							"w-[380px] h-[47px] bg-black text-white text-center rounded-[30px] mx-6 mt-[230px] opacity-50 cursor-pointer",
 						innerText: "Signup",
 					}),
 					El({
@@ -109,14 +109,14 @@ export function Signup() {
 						src: "public/assets/images/lock-fill.png",
 						id: "lock-signup",
 						className:
-							"input-img w-3.5 h-3.5 absolute left-[37px] top-[542px] opacity-50",
+							"input-img w-3.5 h-3.5 absolute left-[37px] top-[543px] opacity-50",
 					}),
 					El({
 						element: "img",
 						src: "public/assets/images/eye-slash-fill.png",
 						id: "eye-signup",
 						className:
-							"input-img w-3.5 h-3.5 absolute left-[375px] top-[542px] opacity-50 cursor-pointer",
+							"input-img w-3.5 h-3.5 absolute left-[375px] top-[543px] opacity-50 cursor-pointer",
 						eventListener: [
 							{
 								event: "click",
@@ -125,7 +125,6 @@ export function Signup() {
 										document.getElementById("password-signup");
 									if (passwordInput.type == "password") {
 										passwordInput.type = "text";
-								
 									} else if (passwordInput.type == "text") {
 										passwordInput.type = "password";
 									}

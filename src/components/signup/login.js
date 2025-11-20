@@ -90,12 +90,12 @@ export function Login() {
 						element: "button",
 						innerText: "Signup",
 						className:
-							"text-black bg-white text-center w-full mt-[30px] font-medium text-3.5",
+							"text-black bg-white text-center w-[47px] mt-[30px] mx-[190px] font-medium text-3.5 cursor-pointer",
 					}),
 					El({
 						element: "button",
 						className:
-							"w-[380px] h-[47px] bg-black text-white text-center rounded-[30px] mx-6 mt-[230px] opacity-50 disabled:",
+							"w-[380px] h-[47px] bg-black text-white text-center rounded-[30px] mx-6 mt-[230px] opacity-50 cursor-pointer",
 						innerText: "Signin",
 					}),
 					El({
@@ -117,14 +117,14 @@ export function Login() {
 						src: "public/assets/images/eye-slash-fill.png",
 						id: "eye-login",
 						className:
-							"w-3.5 h-3.5 absolute left-[375px] top-[542px] opacity-50",
+							"w-3.5 h-3.5 absolute left-[375px] top-[542px] opacity-50 cursor-pointer",
 						eventListener: [
 							{
 								event: "click",
 								callback: () => {
 									let passwordInput = document.getElementById("password-login");
 									if (passwordInput.type == "password") {
-										console.log(passwordInput.type);
+										passwordInput.type = "text";
 									} else if (passwordInput.type == "text") {
 										passwordInput.type = "password";
 									}

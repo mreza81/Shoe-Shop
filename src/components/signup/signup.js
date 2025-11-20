@@ -34,6 +34,7 @@ export function Signup() {
 						placeholder: "Username",
 						type: "email",
 						id: "userName-Signup",
+						required: true,
 						className:
 							"w-[380px] mx-6 px-8 py-2 bg-[#FAFAFA] border border-[2px] border-[#FAFAFA] focus:outline-none focus:border-black rounded-1",
 						eventListener: [
@@ -62,6 +63,7 @@ export function Signup() {
 							"w-[380px] mx-6 px-8 py-2 mt-[21px] bg-[#FAFAFA] border border-[2px] border-[#FAFAFA] focus:outline-none focus:border-black rounded-1",
 						type: "password",
 						id: "password-signup",
+						required: true,
 						eventListener: [
 							{
 								event: "focus",
@@ -89,6 +91,7 @@ export function Signup() {
 					El({
 						element: "button",
 						innerText: "Login",
+						id: "login-span",
 						className:
 							"text-black bg-white text-center w-[47px] mt-[30px] mx-[190px] font-medium text-3.5 cursor-pointer",
 					}),

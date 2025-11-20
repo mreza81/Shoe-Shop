@@ -32,8 +32,10 @@ export function Login() {
 					El({
 						element: "input",
 						placeholder: "Username",
-						type: "email",
+						required: true,
 
+						type: "email",
+						id: "user-login",
 						className:
 							"w-[380px] mx-6 px-8 py-2 bg-[#FAFAFA] border border-[2px] border-[#FAFAFA] focus:outline-none focus:border-black",
 						eventListener: [
@@ -58,10 +60,12 @@ export function Login() {
 					El({
 						element: "input",
 						placeholder: "Password",
+
 						className:
 							"w-[380px] mx-6 px-8 py-2 mt-[21px] bg-[#FAFAFA] border border-[2px] border-[#FAFAFA] focus:outline-none focus:border-black",
 						type: "password",
 						id: "password-login",
+						required: true,
 						eventListener: [
 							{
 								event: "focus",
@@ -89,11 +93,13 @@ export function Login() {
 					El({
 						element: "button",
 						innerText: "Signup",
+						id: "signup-span",
 						className:
 							"text-black bg-white text-center w-[47px] mt-[30px] mx-[190px] font-medium text-3.5 cursor-pointer",
 					}),
 					El({
 						element: "button",
+						id: "signin-btn",
 						className:
 							"w-[380px] h-[47px] bg-black text-white text-center rounded-[30px] mx-6 mt-[230px] opacity-50 cursor-pointer",
 						innerText: "Signin",
@@ -110,14 +116,14 @@ export function Login() {
 						src: "public/assets/images/lock-fill.png",
 						id: "lock-login",
 						className:
-							"w-3.5 h-3.5 absolute left-[37px] top-[542px] opacity-50",
+							"w-3.5 h-3.5 absolute left-[37px] top-[543px] opacity-50",
 					}),
 					El({
 						element: "img",
 						src: "public/assets/images/eye-slash-fill.png",
 						id: "eye-login",
 						className:
-							"w-3.5 h-3.5 absolute left-[375px] top-[542px] opacity-50 cursor-pointer",
+							"w-3.5 h-3.5 absolute left-[375px] top-[543px] opacity-50 cursor-pointer",
 						eventListener: [
 							{
 								event: "click",

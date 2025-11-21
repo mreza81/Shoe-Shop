@@ -1,10 +1,12 @@
 import { BASE_URL } from "./BASE_URL";
-
+import { Login } from "../components/signup/login";
 export async function signup() {
 	const userSignup = document.querySelector("#userName-Signup");
 	const passSignup = document.querySelector("#password-signup");
-	const userName = userSignup.value;
-	const password = passSignup.value;
+	// const AuthenticationDiv = document.getElementById("AuthenticationDiv");
+	const userName = userSignup.value.trim();
+	const password = passSignup.value.trim();
+	const signupBtn = document.getElementById("signup-btn");
 	try {
 		const response = await fetch(`${BASE_URL}/auth/signup`, {
 			method: "POST",
@@ -15,7 +17,9 @@ export async function signup() {
 		console.log(data);
 
 		if (response.ok) {
-			alert("sign up sucess full ! please login");
+			alert("sign up sucess full ! please click on login btn and login here");
+			// AuthenticationDiv.innerHTML = "";
+			// AuthenticationDiv.appendChild(Login());
 		} else {
 			alert(data.message);
 		}
@@ -24,4 +28,6 @@ export async function signup() {
 	}
 	userSignup.value = "";
 	passSignup.value = "";
+	signupBtn.classList.add("pointer-events-none");
+	signupBtn.classList.add("opacity-50");
 }

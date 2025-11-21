@@ -2,6 +2,7 @@ import Swiper from "swiper";
 import { Onboarding1 } from "./onboarding1.js";
 import { Onboarding2 } from "./onboarding2.js";
 import { Slider } from "./onboarding3/Slider.js";
+import { router } from "../../utils/router.js";
 
 export function Onboarding() {
 	const container = document.createElement("div");
@@ -31,16 +32,18 @@ export function Onboarding() {
 			keyboard: true,
 			initialSlide: 0,
 		});
-		// setTimeout(() => {
-		// 	const nextBtn = third.querySelector(".swiper-button-disabled");
-		// 	nextBtn.addEventListener(
-		// 		"click",
-		// 		() => {
-		// 			console.log("Get Started clicked!");
-		// 		},
-		// 		0
-		// 	);
-		// });
+
+		let nextBtn = document.querySelectorAll(".swiper-button-next");
+		nextBtn.forEach((item) => {
+			item.addEventListener("click", () => {
+				if (swiper.activeIndex < swiper.slides.length - 1) {
+					swiper.slideNext();
+				} else {
+					localStorage.setItem("onboarding", "true");
+					router.navigate("/signup");
+				}
+			});
+		});
 
 		setTimeout(() => {
 			const containerEl = third.querySelector(".swiper");

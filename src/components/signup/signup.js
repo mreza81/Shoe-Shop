@@ -1,5 +1,7 @@
 import { signup } from "../../API/signup";
 import { El } from "../../utils/el";
+import { router } from "../../utils/router";
+
 export function Signup() {
 	return El({
 		element: "div",
@@ -8,7 +10,15 @@ export function Signup() {
 			El({
 				element: "img",
 				src: "public/assets/images/back.png",
-				className: "w-4 h-3.5 mt-[21px] ml-8",
+				className: "w-4 h-3.5 mt-[21px] ml-8 cursor-pointer",
+				eventListener: [
+					{
+						event: "click",
+						callback: () => {
+							router.navigate("/onboarding");
+						},
+					},
+				],
 			}),
 			El({
 				element: "div",

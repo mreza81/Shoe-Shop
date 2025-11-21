@@ -4,6 +4,7 @@ import { Signup } from "./signup";
 
 export function Authentication() {
 	let AuthenticationDiv = document.createElement("div");
+	AuthenticationDiv.setAttribute("id", "AuthenticationDiv");
 	const signupEl = Signup();
 	AuthenticationDiv.appendChild(signupEl);
 
@@ -49,8 +50,10 @@ export function Authentication() {
 			function checkInputslogin() {
 				if (userLogin.value.length > 0 && passLogin.value.length > 0) {
 					loginBtn.classList.remove("opacity-50");
+					loginBtn.classList.remove("pointer-events-none");
 				} else {
 					loginBtn.classList.add("opacity-50");
+					loginBtn.classList.remove("pointer-events-none");
 				}
 			}
 			userLogin.addEventListener("input", checkInputslogin);

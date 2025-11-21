@@ -1,4 +1,7 @@
+import { login } from "../../API/login";
 import { El } from "../../utils/el";
+import { router } from "../../utils/router";
+
 export function Login() {
 	return El({
 		element: "div",
@@ -7,7 +10,15 @@ export function Login() {
 			El({
 				element: "img",
 				src: "public/assets/images/back.png",
-				className: "w-4 h-3.5 mt-[21px] ml-8",
+				className: "w-4 h-3.5 mt-[21px] ml-8 cursor-pointer",
+				eventListener: [
+					{
+						event: "click",
+						callback: () => {
+							router.navigate("/onboarding");
+						},
+					},
+				],
 			}),
 			El({
 				element: "div",
@@ -32,9 +43,7 @@ export function Login() {
 					El({
 						element: "input",
 						placeholder: "Username",
-						required: true,
-
-						type: "email",
+						type: "text",
 						id: "user-login",
 						className:
 							"w-[380px] mx-6 px-8 py-2 bg-[#FAFAFA] border border-[2px] border-[#FAFAFA] focus:outline-none focus:border-black",
@@ -43,7 +52,7 @@ export function Login() {
 								event: "focus",
 								callback: (e) => {
 									const img = document.getElementById("envelop-login");
-									console.log(img);
+
 									img.classList.add("opacity-100");
 								},
 							},
@@ -65,7 +74,7 @@ export function Login() {
 							"w-[380px] mx-6 px-8 py-2 mt-[21px] bg-[#FAFAFA] border border-[2px] border-[#FAFAFA] focus:outline-none focus:border-black",
 						type: "password",
 						id: "password-login",
-						required: true,
+
 						eventListener: [
 							{
 								event: "focus",
@@ -100,9 +109,16 @@ export function Login() {
 					El({
 						element: "button",
 						id: "signin-btn",
+						type: "button",
 						className:
-							"w-[380px] h-[47px] bg-black text-white text-center rounded-[30px] mx-6 mt-[230px] opacity-50 cursor-pointer",
+							"w-[380px] h-[47px] bg-black text-white text-center rounded-[30px] mx-6 mt-[230px] opacity-50 cursor-pointer pointer-events-none",
 						innerText: "Signin",
+						eventListener: [
+							{
+								event: "click",
+								callback: login,
+							},
+						],
 					}),
 					El({
 						element: "img",

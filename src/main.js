@@ -5,6 +5,7 @@ Swiper.use([Navigation, Pagination]);
 
 import "./style.css";
 import { router } from "./utils/router.js";
+import { AuthenticationpPage } from "./pages/AuthenticationPage.js";
 
 const app = document.getElementById("app");
 const container = document.createElement("div");
@@ -12,5 +13,6 @@ app.appendChild(container);
 container.append(OnboardingPage());
 
 router.addRoute("/onboarding", OnboardingPage);
+router.addRoute("/signup", AuthenticationpPage);
 router.init(container);
 // Swiper

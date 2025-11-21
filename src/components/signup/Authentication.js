@@ -1,0 +1,69 @@
+import { Login } from "./login";
+import { Signup } from "./signup";
+
+export function Authentication() {
+	let AuthenticationDiv = document.createElement("div");
+	const signupEl = Signup();
+	AuthenticationDiv.appendChild(signupEl);
+
+	setTimeout(() => {
+		// ---------------------signup page events------------------------------------------
+
+		const userSignup = document.querySelector("#userName-Signup");
+		const passSignup = document.querySelector("#password-signup");
+		const signupBtn = document.getElementById("signup-btn");
+		const loginSpan = document.getElementById("login-span");
+		// console.log(loginSpan);
+
+		// --------------------disable/enable signup btn---------------------
+		function checkInputsSignup() {
+			if (userSignup.value.length > 0 && passSignup.value.length > 0) {
+				signupBtn.classList.remove("opacity-50");
+			} else {
+				signupBtn.classList.add("opacity-50");
+			}
+		}
+		userSignup.addEventListener("input", checkInputsSignup);
+		passSignup.addEventListener("input", checkInputsSignup);
+		// -----------------------------------------------------------------
+		// ------------------------signup btn-------------------------------
+		// signupBtn.addEventListener("click", (e) => {
+		// 	AuthenticationDiv.innerHTML = "";
+		// 	AuthenticationDiv.appendChild("loginEl");
+		// });
+		// -----------------------------------------------------------------
+		//---------------------go to login page----------------------------
+		loginSpan.addEventListener("click", (e) => {
+			AuthenticationDiv.innerHTML = "";
+			const loginEl = Login();
+			AuthenticationDiv.appendChild(loginEl);
+			// -----------------login page events-----------------------------------------------
+			const userLogin = document.getElementById("user-login");
+			const passLogin = document.getElementById("password-login");
+			const loginBtn = document.getElementById("signin-btn");
+			const signupSpan = document.getElementById("signup-span");
+
+			// ----------------enable/disable login btn-----------------------
+			function checkInputslogin() {
+				if (userLogin.value.length > 0 && passLogin.value.length > 0) {
+					loginBtn.classList.remove("opacity-50");
+				} else {
+					loginBtn.classList.add("opacity-50");
+				}
+			}
+			userLogin.addEventListener("input", checkInputslogin);
+			passLogin.addEventListener("input", checkInputslogin);
+			// -------------------go to signup page-----------------------------
+			signupSpan.addEventListener("click", (e) => {
+				AuthenticationDiv.innerHTML = "";
+				AuthenticationDiv.appendChild(signupEl);
+			});
+			// ---------------------------------------------------------------
+		});
+		// -----------------------------------------------------------------
+
+		// -----------------------------------------------------------------------------------
+	}, 0);
+
+	return AuthenticationDiv;
+}

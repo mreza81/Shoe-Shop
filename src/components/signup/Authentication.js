@@ -1,3 +1,4 @@
+import { signup } from "../../API/signup";
 import { Login } from "./login";
 import { Signup } from "./signup";
 
@@ -28,7 +29,10 @@ export function Authentication() {
 		passSignup.addEventListener("input", checkInputsSignup);
 		// -----------------------------------------------------------------
 		// ------------------------signup btn-------------------------------
-		signupBtn.addEventListener("click", (e) => {});
+		// signupBtn.addEventListener("click", (e) => {
+		// 	e.preventDefault;
+		// 	signup();
+		// });
 		// -----------------------------------------------------------------
 		//---------------------go to login page----------------------------
 		loginSpan.addEventListener("click", (e) => {

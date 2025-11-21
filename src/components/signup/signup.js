@@ -1,3 +1,4 @@
+import { signup } from "../../API/signup";
 import { El } from "../../utils/el";
 export function Signup() {
 	return El({
@@ -32,7 +33,7 @@ export function Signup() {
 					El({
 						element: "input",
 						placeholder: "Username",
-						type: "email",
+						type: "text",
 						id: "userName-Signup",
 						required: true,
 						className:
@@ -90,17 +91,26 @@ export function Signup() {
 					}),
 					El({
 						element: "button",
+						type: "button",
 						innerText: "Login",
 						id: "login-span",
 						className:
 							"text-black bg-white text-center w-[47px] mt-[30px] mx-[190px] font-medium text-3.5 cursor-pointer",
 					}),
+
 					El({
 						element: "button",
+						type: "button",
 						className:
 							"w-[380px] h-[47px] bg-black text-white text-center rounded-[30px] mx-6 mt-[230px] opacity-50 pointer-events-none cursor-pointer",
 						innerText: "Signup",
 						id: "signup-btn",
+						eventListener: [
+							{
+								event: "click",
+								callback: signup,
+							},
+						],
 					}),
 					El({
 						element: "img",

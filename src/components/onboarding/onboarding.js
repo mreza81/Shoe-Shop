@@ -31,16 +31,27 @@ export function Onboarding() {
 			keyboard: true,
 			initialSlide: 0,
 		});
-		// 2) بعد از اینکه اسلایدر کامل لود شد، reset واقعی بزن
+		// setTimeout(() => {
+		// 	const nextBtn = third.querySelector(".swiper-button-disabled");
+		// 	nextBtn.addEventListener(
+		// 		"click",
+		// 		() => {
+		// 			console.log("Get Started clicked!");
+		// 		},
+		// 		0
+		// 	);
+		// });
+
 		setTimeout(() => {
 			const containerEl = third.querySelector(".swiper");
 			if (containerEl) {
 				containerEl.scrollLeft = 0;
 			}
-			// اگر wrapper وجود داشت scrollTop هم صفر کن برای اطمینان
+
 			const wrapper = third.querySelector(".swiper-wrapper");
 			if (wrapper) wrapper.scrollLeft = 0;
-		}, 50); // ← مهم
+		}, 50);
 	}, 6000);
+
 	return container;
 }

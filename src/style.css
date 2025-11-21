@@ -22,9 +22,6 @@
 	content: "next";
 	font-weight: 500px;
 }
-.swiper-button-next.swiper-button-disabled {
-	display: none;
-}
 .swiper-button-next {
 	position: absolute;
 	top: 870px !important;
@@ -39,4 +36,16 @@
 	line-height: 47px;
 	font-size: 16px;
 	cursor: pointer;
+}
+.swiper-button-disabled {
+	pointer-events: auto !important;
+}
+
+.swiper-button-next.swiper-button-disabled::after {
+	display: block;
+	content: "Get Started" !important;
+}
+.swiper-button-disabled {
+	cursor: pointer !important;
+	opacity: 100% !important;
 }

@@ -98,7 +98,7 @@ export function Signup() {
 					El({
 						element: "button",
 						className:
-							"w-[380px] h-[47px] bg-black text-white text-center rounded-[30px] mx-6 mt-[230px] opacity-50 cursor-pointer",
+							"w-[380px] h-[47px] bg-black text-white text-center rounded-[30px] mx-6 mt-[230px] opacity-50 pointer-events-none cursor-pointer",
 						innerText: "Signup",
 						id: "signup-btn",
 					}),

@@ -13,24 +13,22 @@ export function Authentication() {
 		const passSignup = document.querySelector("#password-signup");
 		const signupBtn = document.getElementById("signup-btn");
 		const loginSpan = document.getElementById("login-span");
-		// console.log(loginSpan);
 
 		// --------------------disable/enable signup btn---------------------
 		function checkInputsSignup() {
 			if (userSignup.value.length > 0 && passSignup.value.length > 0) {
 				signupBtn.classList.remove("opacity-50");
+				signupBtn.classList.remove("pointer-events-none");
 			} else {
 				signupBtn.classList.add("opacity-50");
+				signupBtn.classList.add("pointer-events-none");
 			}
 		}
 		userSignup.addEventListener("input", checkInputsSignup);
 		passSignup.addEventListener("input", checkInputsSignup);
 		// -----------------------------------------------------------------
 		// ------------------------signup btn-------------------------------
-		// signupBtn.addEventListener("click", (e) => {
-		// 	AuthenticationDiv.innerHTML = "";
-		// 	AuthenticationDiv.appendChild("loginEl");
-		// });
+		signupBtn.addEventListener("click", (e) => {});
 		// -----------------------------------------------------------------
 		//---------------------go to login page----------------------------
 		loginSpan.addEventListener("click", (e) => {

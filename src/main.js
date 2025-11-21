@@ -15,4 +15,3 @@ container.append(OnboardingPage());
 router.addRoute("/onboarding", OnboardingPage);
 router.addRoute("/signup", AuthenticationpPage);
 router.init(container);
-// Swiper

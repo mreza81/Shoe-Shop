@@ -123,10 +123,149 @@ export function Home() {
 			El({
 				element: "div",
 				id: "items-div",
-				className: "mt-6",
+				className: "mt-6 grid grid-cols-2 gap-x-4 gap-y-6 overflow-x-scroll",
+				children: [
+					// El({
+					// 	element: "div",
+					// 	className: "item w-[182px] h-[244px] p-0 ",
+					// 	id: "",
+					// 	children: [
+					// 		El({
+					// 			element: "div",
+					// 			className:
+					// 				"item-img-div bg-[#F3F3F3] w-full h-[182px] rounded-3xl",
+					// 			children: [
+					// 				El({
+					// 					element: "img",
+					// 					className: "item-img",
+					// 					src: "",
+					// 					id: "",
+					// 				}),
+					// 			],
+					// 		}),
+					// 		El({
+					// 			element: "div",
+					// 			className:
+					// 				"item-p-div max-w-[182px] flex flex-col justify-start gap-2",
+					// 			children: [
+					// 				El({
+					// 					element: "p",
+					// 					className:
+					// 						"item-name font-bold text-5 text-[#152536] leading-[100%]",
+					// 					innerText: "",
+					// 				}),
+					// 				El({
+					// 					element: "p",
+					// 					className:
+					// 						"item-price font-semibold text-4 text-[#152536] leading-[100%]",
+					// 					innerText: "",
+					// 				}),
+					// 			],
+					// 		}),
+					// ],
+					// }),
+				],
+			}),
+			El({
+				element: "p",
+				className:
+					"ml-[91px] text-3.5 font-semibold tracking-[-4%] absolute bottom-[105px]",
+				innerText: "Infinity Scrolling for pagination",
+			}),
+			El({
+				element: "div",
+				className:
+					"home-footer flex justify-around items-center max-h-[66px] py-3 absolute bottom-0 left-6 right-6",
 				children: [
 					El({
 						element: "div",
+						className: "flex flex-col justify-center items-center gap-.5",
+						id: "home-footer-home",
+						children: [
+							El({
+								element: "img",
+								className: "",
+								src: "public/assets/images/house-door-fill.png",
+							}),
+							El({
+								element: "p",
+								className:
+									"text-[10px] font-semibold text-[#152536] tracking-[-4%]",
+								innerText: "Home",
+							}),
+						],
+					}),
+					El({
+						element: "div",
+						className: "flex flex-col justify-center items-center gap-.5",
+						id: "home-footer-cart",
+						children: [
+							El({
+								element: "img",
+								className: "",
+								src: "public/assets/images/bag.png",
+							}),
+							El({
+								element: "p",
+								className:
+									"text-[10px] font-semibold text-[#152536] tracking-[-4%]",
+								innerText: "Cart",
+							}),
+						],
+					}),
+					El({
+						element: "div",
+						className: "flex flex-col justify-center items-center gap-.5",
+						id: "home-footer-Orders",
+						children: [
+							El({
+								element: "img",
+								className: "",
+								src: "public/assets/images/cart2.png",
+							}),
+							El({
+								element: "p",
+								className:
+									"text-[10px] font-semibold text-[#152536] tracking-[-4%]",
+								innerText: "Orders",
+							}),
+						],
+					}),
+					El({
+						element: "div",
+						className: "flex flex-col justify-center items-center gap-.5",
+						id: "home-footer-wallet",
+						children: [
+							El({
+								element: "img",
+								className: "",
+								src: "public/assets/images/wallet2.png",
+							}),
+							El({
+								element: "p",
+								className:
+									"text-[10px] font-semibold text-[#152536] tracking-[-4%]",
+								innerText: "Wallet",
+							}),
+						],
+					}),
+					El({
+						element: "div",
+						className: "flex flex-col justify-center items-center gap-.5",
+						id: "home-footer-profile",
+						children: [
+							El({
+								element: "img",
+								className: "",
+								src: "public/assets/images/person.png",
+							}),
+							El({
+								element: "p",
+								className:
+									"text-[10px] font-semibold text-[#152536] tracking-[-4%]",
+								innerText: "Profile",
+							}),
+						],
 					}),
 				],
 			}),

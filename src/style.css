@@ -49,3 +49,23 @@
 	cursor: pointer !important;
 	opacity: 100% !important;
 }
+
+/* حذف اسکرول بار */
+
+.no-scrollbar::-webkit-scrollbar {
+	display: none; /* Chrome, Safari */
+}
+.no-scrollbar {
+	-ms-overflow-style: none; /* IE & Edge */
+	scrollbar-width: none; /* Firefox */
+}
+
+/* اسکرول کردن */
+.brands {
+	cursor: grab;
+	user-select: none;
+}
+
+.brands:active {
+	cursor: grabbing;
+}

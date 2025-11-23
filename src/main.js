@@ -17,3 +17,4 @@ router.addRoute("/onboarding", OnboardingPage);
 router.addRoute("/signup", AuthenticationpPage);
 router.init(container);
 // localStorage.removeItem("token");
+// localStorage.removeItem("onboarding");

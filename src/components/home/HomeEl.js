@@ -74,6 +74,7 @@ export function HomeEl() {
 			}),
 			El({
 				element: "div",
+				id: "brands-btn-div",
 				className:
 					"brands flex justify-start items-center gap-3 mt-5 -mr-[23px] overflow-scroll no-scrollbar ",
 				children: [
@@ -81,43 +82,8 @@ export function HomeEl() {
 						element: "button",
 						type: "button",
 						className:
-							"cursor-pointer h-[39px] px-5 text-4 font-semibold border-2 border-[#343A40] rounded-[25px] cursor:pointer  ",
+							"cursor-pointer h-[39px] px-5 text-4 font-semibold border-2 border-[#343A40] rounded-[25px] cursor:pointer bg-black text-white  ",
 						innerText: "All",
-					}),
-					El({
-						element: "button",
-						type: "button",
-						className:
-							"cursor-pointer h-[39px] px-5 text-4 font-semibold border-2 border-[#343A40] rounded-[25px] cursor:pointer ",
-						innerText: "Nike",
-					}),
-					El({
-						element: "button",
-						type: "button",
-						className:
-							"cursor-pointer h-[39px] px-5 text-4 font-semibold border-2 border-[#343A40] rounded-[25px] cursor:pointer ",
-						innerText: "Adidas",
-					}),
-					El({
-						element: "button",
-						type: "button",
-						className:
-							"cursor-pointer h-[39px] px-5 text-4 font-semibold border-2 border-[#343A40] rounded-[25px] cursor:pointer",
-						innerText: "Puma",
-					}),
-					El({
-						element: "button",
-						type: "button",
-						className:
-							"cursor-pointer h-[39px] px-5 text-4 font-semibold border-2 border-[#343A40] rounded-[25px] cursor:pointer ",
-						innerText: "Asics",
-					}),
-					El({
-						element: "button",
-						type: "button",
-						className:
-							"cursor-pointer h-[39px] px-5 text-4 font-semibold border-2 border-[#343A40] rounded-[25px] cursor:pointer ",
-						innerText: "NewBalance",
 					}),
 				],
 			}),
@@ -126,47 +92,7 @@ export function HomeEl() {
 				id: "items-div",
 				className:
 					"mt-6 grid grid-cols-2 gap-x-4 gap-y-6 h-[470px] overflow-y-scroll no-scrollbar",
-				children: [
-					// El({
-					// 	element: "div",
-					// 	className: "item w-[182px] h-[244px] p-0 ",
-					// 	id: "",
-					// 	children: [
-					// 		El({
-					// 			element: "div",
-					// 			className:
-					// 				"item-img-div bg-[#F3F3F3] w-full h-[182px] rounded-3xl",
-					// 			children: [
-					// 				El({
-					// 					element: "img",
-					// 					className: "item-img",
-					// 					src: "",
-					// 					id: "",
-					// 				}),
-					// 			],
-					// 		}),
-					// 		El({
-					// 			element: "div",
-					// 			className:
-					// 				"item-p-div max-w-[182px] flex flex-col justify-start gap-2",
-					// 			children: [
-					// 				El({
-					// 					element: "p",
-					// 					className:
-					// 						"item-name font-bold text-5 text-[#152536] leading-[100%]",
-					// 					innerText: "",
-					// 				}),
-					// 				El({
-					// 					element: "p",
-					// 					className:
-					// 						"item-price font-semibold text-4 text-[#152536] leading-[100%]",
-					// 					innerText: "",
-					// 				}),
-					// 			],
-					// 		}),
-					// ],
-					// }),
-				],
+				children: [],
 			}),
 			El({
 				element: "p",

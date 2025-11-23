@@ -1,93 +1,108 @@
+import { brands } from "../../API/home/brands";
 import { getItems } from "../../API/home/getItems";
+import { router } from "../../utils/router";
 import { HomeEl } from "./HomeEl";
 
 export function home() {
-	const home = HomeEl();
-	setTimeout(() => {
-		getItems();
-		//-----------------------------------------hide scrollbar-x------------------------------------------------
-		const brands = document.querySelector(".brands");
+	const onboarding = localStorage.getItem("onboarding");
+	const token = localStorage.getItem("token");
 
-		let isDown = false;
-		let startX;
-		let scrollLeft;
+	if (!onboarding) {
+		router.navigate("/onboarding");
+	} else if (!token) {
+		alert("please signin!");
+		router.navigate("/signup");
+	} else {
+		const home = HomeEl();
 
-		brands.addEventListener("mousedown", (e) => {
-			isDown = true;
-			brands.classList.add("active");
-			startX = e.pageX - brands.offsetLeft;
-			scrollLeft = brands.scrollLeft;
-		});
+		setTimeout(() => {
+			brands();
+			getItems();
 
-		brands.addEventListener("mouseleave", () => {
-			isDown = false;
-		});
+			//-----------------------------------------hide scrollbar-x------------------------------------------------
+			const brand = document.querySelector(".brands");
 
-		brands.addEventListener("mouseup", () => {
-			isDown = false;
-		});
+			let isDown = false;
+			let startX;
+			let scrollLeft;
 
-		brands.addEventListener("mousemove", (e) => {
-			if (!isDown) return;
-			e.preventDefault();
-			const x = e.pageX - brands.offsetLeft;
-			const walk = (x - startX) * 1.5;
-			brands.scrollLeft = scrollLeft - walk;
-		});
+			brand.addEventListener("mousedown", (e) => {
+				isDown = true;
+				brand.classList.add("active");
+				startX = e.pageX - brand.offsetLeft;
+				scrollLeft = brand.scrollLeft;
+			});
 
-		// تاچ‌پد / موبایل
-		brands.addEventListener("touchstart", (e) => {
-			startX = e.touches[0].clientX;
-			scrollLeft = brands.scrollLeft;
-		});
+			brand.addEventListener("mouseleave", () => {
+				isDown = false;
+			});
 
-		brands.addEventListener("touchmove", (e) => {
-			const x = e.touches[0].clientX;
-			const walk = (x - startX) * 2;
-			brands.scrollLeft = scrollLeft - walk;
-		});
-		// ---------------------------------------------------------------------------------------------------
-		//-------------------------------------hide scrollbar-y-----------------------------------------------
-		const box = document.querySelector("#items-div");
+			brand.addEventListener("mouseup", () => {
+				isDown = false;
+			});
 
-		let startY = 0;
-		let scrollTop = 0;
+			brand.addEventListener("mousemove", (e) => {
+				if (!isDown) return;
+				e.preventDefault();
+				const x = e.pageX - brand.offsetLeft;
+				const walk = (x - startX) * 1.5;
+				brand.scrollLeft = scrollLeft - walk;
+			});
 
-		// Mouse Events
-		box.addEventListener("mousedown", (e) => {
-			isDown = true;
-			startY = e.pageY - box.offsetTop;
-			scrollTop = box.scrollTop;
-		});
+			// تاچ‌پد / موبایل
+			brand.addEventListener("touchstart", (e) => {
+				startX = e.touches[0].clientX;
+				scrollLeft = brand.scrollLeft;
+			});
 
-		box.addEventListener("mouseleave", () => {
-			isDown = false;
-		});
+			brand.addEventListener("touchmove", (e) => {
+				const x = e.touches[0].clientX;
+				const walk = (x - startX) * 2;
+				brand.scrollLeft = scrollLeft - walk;
+			});
+			// ---------------------------------------------------------------------------------------------------
+			//-------------------------------------hide scrollbar-y-----------------------------------------------
+			const box = document.querySelector("#items-div");
 
-		box.addEventListener("mouseup", () => {
-			isDown = false;
-		});
+			let startY = 0;
+			let scrollTop = 0;
 
-		box.addEventListener("mousemove", (e) => {
-			if (!isDown) return;
-			e.preventDefault();
-			const y = e.pageY - box.offsetTop;
-			const walk = (y - startY) * 1.7;
-			box.scrollTop = scrollTop - walk;
-		});
+			// Mouse Events
+			box.addEventListener("mousedown", (e) => {
+				isDown = true;
+				startY = e.pageY - box.offsetTop;
+				scrollTop = box.scrollTop;
+			});
 
-		// Touch Events (موبایل و تاچ پد)
-		box.addEventListener("touchstart", (e) => {
-			startY = e.touches[0].clientY;
-			scrollTop = box.scrollTop;
-		});
+			box.addEventListener("mouseleave", () => {
+				isDown = false;
+			});
 
-		box.addEventListener("touchmove", (e) => {
-			const y = e.touches[0].clientY;
-			const walk = (y - startY) * 1.7;
-			box.scrollTop = scrollTop - walk;
-		});
-	}, 0);
+			box.addEventListener("mouseup", () => {
+				isDown = false;
+			});
 
-	return home;
+			box.addEventListener("mousemove", (e) => {
+				if (!isDown) return;
+				e.preventDefault();
+				const y = e.pageY - box.offsetTop;
+				const walk = (y - startY) * 1.7;
+				box.scrollTop = scrollTop - walk;
+			});
+
+			// Touch Events (موبایل و تاچ پد)
+			box.addEventListener("touchstart", (e) => {
+				startY = e.touches[0].clientY;
+				scrollTop = box.scrollTop;
+			});
+
+			box.addEventListener("touchmove", (e) => {
+				const y = e.touches[0].clientY;
+				const walk = (y - startY) * 1.7;
+				box.scrollTop = scrollTop - walk;
+			});
+		}, 0);
+
+		return home;
+	}
 }

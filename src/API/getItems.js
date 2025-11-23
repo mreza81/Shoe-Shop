@@ -1,4 +1,4 @@
-import { BASE_URL } from "../BASE URL/BASE_URL";
+import { BASE_URL } from "./BASE_URL";
 import { El } from "../utils/el";
 import { router } from "../utils/router";
 

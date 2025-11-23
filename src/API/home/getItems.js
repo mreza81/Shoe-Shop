@@ -1,6 +1,6 @@
-import { BASE_URL } from "./BASE_URL";
-import { El } from "../utils/el";
-import { router } from "../utils/router";
+import { El } from "../../utils/el";
+import { router } from "../../utils/router";
+import { BASE_URL } from "../BASE_URL/BASE_URL";
 
 export async function getItems() {
 	const token = localStorage.getItem("token");

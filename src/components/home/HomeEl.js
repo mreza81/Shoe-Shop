@@ -1,5 +1,4 @@
 import { getGreeting, getUserName } from "../../../js/welcome";
-import { getItems } from "../../API/getItems";
 import { El } from "../../utils/el";
 
 export function HomeEl() {
@@ -13,7 +12,7 @@ export function HomeEl() {
 				children: [
 					El({
 						element: "div",
-						className: "welcome w-[130px] h-12",
+						className: "welcome w-[160px] h-12",
 						children: [
 							El({
 								element: "p",
@@ -273,7 +272,4 @@ export function HomeEl() {
 			}),
 		],
 	});
-	setTimeout(() => {
-		getItems(); // حالا items-div به DOM اضافه شده
-	}, 0);
 }

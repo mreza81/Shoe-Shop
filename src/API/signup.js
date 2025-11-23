@@ -1,4 +1,4 @@
-import { BASE_URL } from "./BASE_URL";
+import { BASE_URL } from "./BASE_URL/BASE_URL";
 export async function signup() {
 	const userSignup = document.querySelector("#userName-Signup");
 	const passSignup = document.querySelector("#password-signup");

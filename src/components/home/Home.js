@@ -1,4 +1,4 @@
-import { getItems } from "../../API/getItems";
+import { getItems } from "../../API/home/getItems";
 import { HomeEl } from "./HomeEl";
 
 export function home() {

@@ -1,4 +1,4 @@
-import { BASE_URL } from "./BASE_URL";
+import { BASE_URL } from "../BASE_URL/BASE_URL";
 
 export async function brands() {
 	const token = localStorage.getItem("token");

@@ -1,5 +1,6 @@
 import { getGreeting, getUserName } from "../../../js/welcome";
 import { El } from "../../utils/el";
+import { getItems } from "../../API/home/getItems";
 
 export function HomeEl() {
 	return El({
@@ -84,6 +85,12 @@ export function HomeEl() {
 						className:
 							"cursor-pointer h-[39px] px-5 text-4 font-semibold border-2 border-[#343A40] rounded-[25px] cursor:pointer bg-black text-white  ",
 						innerText: "All",
+						eventListener: [
+							{
+								event: "click",
+								callback: getItems,
+							},
+						],
 					}),
 				],
 			}),

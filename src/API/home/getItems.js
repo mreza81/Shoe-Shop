@@ -5,6 +5,7 @@ import { BASE_URL } from "../BASE_URL/BASE_URL";
 export async function getItems() {
 	const token = localStorage.getItem("token");
 	const itemsDiv = document.getElementById("items-div");
+	itemsDiv.innerHTML = "";
 
 	const response = await fetch(`${BASE_URL}/sneaker?page=1&limit=100`, {
 		headers: {
@@ -25,6 +26,14 @@ export async function getItems() {
 			className:
 				"item w-[182px] h-[244px] p-0 flex flex-col justify-start gap-3 ",
 			id: "",
+			eventListener: [
+				{
+					event: "click",
+					callback: () => {
+						console.log("hello");
+					},
+				},
+			],
 			children: [
 				El({
 					element: "div",
@@ -60,6 +69,7 @@ export async function getItems() {
 				}),
 			],
 		});
+
 		itemsDiv.append(element);
 	});
 }

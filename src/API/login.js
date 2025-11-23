@@ -26,7 +26,7 @@ export async function loginAPI() {
 			alert(data.message);
 		}
 	} catch {
-		throw new Error("eror");
+		throw new Error(Error);
 	}
 	userLogin.value = "";
 	passLogin.value = "";

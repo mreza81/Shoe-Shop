@@ -1,5 +1,6 @@
 import { getAllBrands } from "../../API/home/getAllBrands";
 import { getItems } from "../../API/home/getItems";
+
 import { router } from "../../utils/router";
 import { HomeEl } from "./HomeEl";
 
@@ -16,8 +17,8 @@ export function home() {
 		const home = HomeEl();
 
 		setTimeout(() => {
-			getAllBrands();
 			getItems();
+			getAllBrands();
 
 			//-----------------------------------------hide scrollbar-x------------------------------------------------
 			const brand = document.querySelector(".brands");

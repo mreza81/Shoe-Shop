@@ -23,7 +23,8 @@ export async function signupAPI() {
 			alert(data.message);
 		}
 	} catch {
-		console.log("eror");
+		throw new Error(Error);
+		
 	}
 	userSignup.value = "";
 	passSignup.value = "";

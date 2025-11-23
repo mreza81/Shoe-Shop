@@ -1,10 +1,10 @@
 import { El } from "../../utils/el";
 import { BASE_URL } from "../BASE_URL/BASE_URL";
-import { getBrand } from "./getbrand";
+// import { getBrand } from "./getbrand";
 
 export async function getAllBrands() {
 	const token = localStorage.getItem("token");
-	console.log(token);
+	const itemsDiv = document.getElementById("items-div");
 
 	const brandsDiv = document.getElementById("brands-btn-div");
 	const response = await fetch(`${BASE_URL}/sneaker/brands`, {
@@ -24,8 +24,25 @@ export async function getAllBrands() {
 			eventListener: [
 				{
 					event: "click",
-					callback: () => {
-						getBrand();
+					callback: async () => {
+						itemsDiv.innerHTML = "";
+						try {
+							const res = await fetch(`${BASE_URL}/sneaker?page=1&limit=100`, {
+								headers: {
+									"Content-Type": "application/json; charset=UTF-8",
+									Authorization: `Bearer ${token}`,
+								},
+							});
+							const data = await res.json();
+							const allItems = data.data;
+
+							const filtredItems = allItems.filter((element) => {
+								return element.brand.toUpperCase() === item.toUpperCase();
+							});
+							console.log(filtredItems);
+						} catch {
+							throw new Error(Error);
+						}
 					},
 				},
 			],

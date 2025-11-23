@@ -1,5 +1,6 @@
-import { Home } from "../components/home/Home";
+import { home } from "../components/home/Home";
+import { HomeEl } from "../components/home/HomeEl";
 
 export function HomePage() {
-	return Home();
+	return home();
 }

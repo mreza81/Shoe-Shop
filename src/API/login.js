@@ -1,5 +1,6 @@
 import { router } from "../utils/router";
 import { BASE_URL } from "./BASE_URL";
+import { getItems } from "./getItems";
 
 export async function login() {
 	const userLogin = document.querySelector("#user-login");
@@ -18,6 +19,7 @@ export async function login() {
 		if (response.ok) {
 			localStorage.setItem("userName", data.user.username);
 			localStorage.setItem("token", data.token);
+
 			setTimeout(() => {
 				router.navigate("/");
 			}, 700);

@@ -1,8 +1,9 @@
-import { signup } from "../../API/signup";
+import { loginAPI } from "../../API/login";
 import { El } from "../../utils/el";
 import { router } from "../../utils/router";
+import { checkInputsLogin } from "./functions";
 
-export function Signup() {
+export function LoginEl() {
 	return El({
 		element: "div",
 		className: "",
@@ -34,7 +35,7 @@ export function Signup() {
 			El({
 				element: "div",
 				className: "text-center mt-[118px] text-[32px] font-semibold ",
-				innerText: "Signup to Your Account",
+				innerText: "Login to Your Account",
 			}),
 			El({
 				element: "form",
@@ -44,15 +45,14 @@ export function Signup() {
 						element: "input",
 						placeholder: "Username",
 						type: "text",
-						id: "userName-Signup",
-						required: true,
+						id: "user-login",
 						className:
-							"w-[380px] mx-6 px-8 py-2 bg-[#FAFAFA] border border-[2px] border-[#FAFAFA] focus:outline-none focus:border-black rounded-1",
+							"w-[380px] mx-6 px-8 py-2 bg-[#FAFAFA] border border-[2px] border-[#FAFAFA] focus:outline-none focus:border-black",
 						eventListener: [
 							{
 								event: "focus",
 								callback: (e) => {
-									const img = document.getElementById("envelop-signup");
+									const img = document.getElementById("envelop-login");
 
 									img.classList.add("opacity-100");
 								},
@@ -60,27 +60,32 @@ export function Signup() {
 							{
 								event: "blur",
 								callback: () => {
-									const img = document.getElementById("envelop-signup");
+									const img = document.getElementById("envelop-login");
 									img.classList.remove("opacity-100");
 									img.classList.add("opacity-50");
 								},
+							},
+							{
+								event: "input",
+								callback: checkInputsLogin,
 							},
 						],
 					}),
 					El({
 						element: "input",
 						placeholder: "Password",
+
 						className:
-							"w-[380px] mx-6 px-8 py-2 mt-[21px] bg-[#FAFAFA] border border-[2px] border-[#FAFAFA] focus:outline-none focus:border-black rounded-1",
+							"w-[380px] mx-6 px-8 py-2 mt-[21px] bg-[#FAFAFA] border border-[2px] border-[#FAFAFA] focus:outline-none focus:border-black",
 						type: "password",
-						id: "password-signup",
-						required: true,
+						id: "password-login",
+
 						eventListener: [
 							{
 								event: "focus",
 								callback: (e) => {
-									const img = document.getElementById("eye-signup");
-									const img2 = document.getElementById("lock-signup");
+									const img = document.getElementById("eye-login");
+									const img2 = document.getElementById("lock-login");
 									img.classList.add("opacity-100");
 
 									img2.classList.add("opacity-100");
@@ -89,65 +94,74 @@ export function Signup() {
 							{
 								event: "blur",
 								callback: () => {
-									const img = document.getElementById("eye-signup");
-									const img2 = document.getElementById("lock-signup");
+									const img = document.getElementById("eye-login");
+									const img2 = document.getElementById("lock-login");
 									img.classList.remove("opacity-100");
 									img.classList.add("opacity-50");
 									img2.classList.remove("opacity-100");
 									img2.classList.add("opacity-50");
 								},
 							},
+							{
+								event: "input",
+								callback: checkInputsLogin,
+							},
 						],
 					}),
 					El({
 						element: "button",
-						type: "button",
-						innerText: "Login",
-						id: "login-span",
+						innerText: "Signup",
+						id: "signup-span",
 						className:
 							"text-black bg-white text-center w-[47px] mt-[30px] mx-[190px] font-medium text-3.5 cursor-pointer",
-					}),
-
-					El({
-						element: "button",
-						type: "button",
-						className:
-							"w-[380px] h-[47px] bg-black text-white text-center rounded-[30px] mx-6 mt-[230px] opacity-50 pointer-events-none cursor-pointer",
-						innerText: "Signup",
-						id: "signup-btn",
 						eventListener: [
 							{
 								event: "click",
-								callback: signup,
+								callback: () => {
+									router.navigate("/signup");
+								},
+							},
+						],
+					}),
+					El({
+						element: "button",
+						id: "signin-btn",
+						type: "button",
+						className:
+							"w-[380px] h-[47px] bg-black text-white text-center rounded-[30px] mx-6 mt-[230px] opacity-50 cursor-pointer pointer-events-none",
+						innerText: "Signin",
+						eventListener: [
+							{
+								event: "click",
+								callback: loginAPI,
 							},
 						],
 					}),
 					El({
 						element: "img",
 						src: "public/assets/images/envelope-fill.png",
-						id: "envelop-signup",
+						id: "envelop-login",
 						className:
-							"input-img w-3.5 h-3.5 absolute left-[37px] top-[478px] opacity-50",
+							"w-3.5 h-3.5 absolute left-[37px] top-[478px] opacity-50",
 					}),
 					El({
 						element: "img",
 						src: "public/assets/images/lock-fill.png",
-						id: "lock-signup",
+						id: "lock-login",
 						className:
-							"input-img w-3.5 h-3.5 absolute left-[37px] top-[543px] opacity-50",
+							"w-3.5 h-3.5 absolute left-[37px] top-[543px] opacity-50",
 					}),
 					El({
 						element: "img",
 						src: "public/assets/images/eye-slash-fill.png",
-						id: "eye-signup",
+						id: "eye-login",
 						className:
-							"input-img w-3.5 h-3.5 absolute left-[375px] top-[543px] opacity-50 cursor-pointer",
+							"w-3.5 h-3.5 absolute left-[375px] top-[543px] opacity-50 cursor-pointer",
 						eventListener: [
 							{
 								event: "click",
 								callback: () => {
-									let passwordInput =
-										document.getElementById("password-signup");
+									let passwordInput = document.getElementById("password-login");
 									if (passwordInput.type == "password") {
 										passwordInput.type = "text";
 									} else if (passwordInput.type == "text") {

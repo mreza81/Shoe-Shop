@@ -1,8 +1,11 @@
 import { El } from "../../utils/el";
 import { BASE_URL } from "../BASE_URL/BASE_URL";
+import { getBrand } from "./getbrand";
 
-export async function brands() {
+export async function getAllBrands() {
 	const token = localStorage.getItem("token");
+	console.log(token);
+
 	const brandsDiv = document.getElementById("brands-btn-div");
 	const response = await fetch(`${BASE_URL}/sneaker/brands`, {
 		headers: {
@@ -22,7 +25,7 @@ export async function brands() {
 				{
 					event: "click",
 					callback: () => {
-						console.log("hello");
+						getBrand();
 					},
 				},
 			],

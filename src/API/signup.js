@@ -1,5 +1,5 @@
 import { BASE_URL } from "./BASE_URL/BASE_URL";
-export async function signup() {
+export async function signupAPI() {
 	const userSignup = document.querySelector("#userName-Signup");
 	const passSignup = document.querySelector("#password-signup");
 	// const AuthenticationDiv = document.getElementById("AuthenticationDiv");

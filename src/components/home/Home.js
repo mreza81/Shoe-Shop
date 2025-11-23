@@ -1,4 +1,4 @@
-import { brands } from "../../API/home/brands";
+import { getAllBrands } from "../../API/home/getAllBrands";
 import { getItems } from "../../API/home/getItems";
 import { router } from "../../utils/router";
 import { HomeEl } from "./HomeEl";
@@ -16,7 +16,7 @@ export function home() {
 		const home = HomeEl();
 
 		setTimeout(() => {
-			brands();
+			getAllBrands();
 			getItems();
 
 			//-----------------------------------------hide scrollbar-x------------------------------------------------

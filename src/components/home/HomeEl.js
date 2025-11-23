@@ -1,6 +1,6 @@
 import { getGreeting, getUserName } from "../../../js/welcome";
-import { El } from "../../utils/el";
 import { getItems } from "../../API/home/getItems";
+import { El } from "../../utils/el";
 
 export function HomeEl() {
 	return El({
@@ -82,13 +82,22 @@ export function HomeEl() {
 					El({
 						element: "button",
 						type: "button",
+
 						className:
-							"cursor-pointer h-[39px] px-5 text-4 font-semibold border-2 border-[#343A40] rounded-[25px] cursor:pointer bg-black text-white  ",
+							"filter-btn cursor-pointer h-[39px] px-5 text-4 font-semibold border-2 border-[#343A40] rounded-[25px] cursor:pointer  ",
 						innerText: "All",
+						id: "all-Btn",
 						eventListener: [
 							{
 								event: "click",
-								callback: getItems,
+								callback: (e) => {
+									getItems();
+									document.querySelectorAll(".filter-btn").forEach((btn) => {
+										btn.classList.remove("bg-[#343A40]", "text-white");
+									});
+									const target = e.target;
+									target.classList.add("bg-[#343A40]", "text-white");
+								},
 							},
 						],
 					}),

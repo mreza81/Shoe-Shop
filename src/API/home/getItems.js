@@ -5,6 +5,7 @@ import { BASE_URL } from "../BASE_URL/BASE_URL";
 export async function getItems() {
 	const token = localStorage.getItem("token");
 	const itemsDiv = document.getElementById("items-div");
+
 	itemsDiv.innerHTML = "";
 
 	const response = await fetch(`${BASE_URL}/sneaker?page=1&limit=100`, {

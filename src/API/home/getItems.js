@@ -31,7 +31,7 @@ export async function getItems() {
 				{
 					event: "click",
 					callback: () => {
-						console.log("hello");
+						sessionStorage.setItem("item-id", `${item.id}`);
 					},
 				},
 			],

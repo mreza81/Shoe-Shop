@@ -1,4 +1,4 @@
-import { getAllBrands } from "../../API/home/getAllBrands";
+import { getBrand } from "../../API/home/getbrand";
 import { getItems } from "../../API/home/getItems";
 
 import { router } from "../../utils/router";
@@ -12,13 +12,13 @@ export function home() {
 		router.navigate("/onboarding");
 	} else if (!token) {
 		alert("please signin!");
-		router.navigate("/signup");
+		router.navigate("/login");
 	} else {
 		const home = HomeEl();
 
 		setTimeout(() => {
 			getItems();
-			getAllBrands();
+			getBrand();
 
 			//-----------------------------------------hide scrollbar-x------------------------------------------------
 			const brand = document.querySelector(".brands");

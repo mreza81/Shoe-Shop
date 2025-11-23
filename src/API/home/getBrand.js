@@ -2,7 +2,7 @@ import { El } from "../../utils/el";
 import { BASE_URL } from "../BASE_URL/BASE_URL";
 // import { getBrand } from "./getbrand";
 
-export async function getAllBrands() {
+export async function getBrand() {
 	const token = localStorage.getItem("token");
 	const itemsDiv = document.getElementById("items-div");
 	const btnAll = document.getElementById("all-Btn");
@@ -61,7 +61,7 @@ export async function getAllBrands() {
 										{
 											event: "click",
 											callback: () => {
-												console.log("hello");
+												sessionStorage.setItem("item-id", `${item.id}`);
 											},
 										},
 									],

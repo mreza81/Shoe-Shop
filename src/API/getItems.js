@@ -1,6 +1,6 @@
+import { BASE_URL } from "../BASE URL/BASE_URL";
 import { El } from "../utils/el";
 import { router } from "../utils/router";
-import { BASE_URL } from "./BASE_URL";
 
 export async function getItems() {
 	const token = localStorage.getItem("token");
@@ -22,17 +22,19 @@ export async function getItems() {
 	itemsArray.forEach((item) => {
 		const element = El({
 			element: "div",
-			className: "item w-[182px] h-[244px] p-0 ",
+			className:
+				"item w-[182px] h-[244px] p-0 flex flex-col justify-start gap-3 ",
 			id: "",
 			children: [
 				El({
 					element: "div",
-					className: "item-img-div bg-[#F3F3F3] w-full h-[182px] rounded-3xl",
+					className: "item-img-div  rounded-3xl",
 					children: [
 						El({
 							element: "img",
-							className: "item-img",
-							src: "",
+							className:
+								"item-img rounded-3xl min-h-[182px] max-h-[182px] min-w-[182px] max-w-[182px]",
+							src: `${item.imageURL}`,
 							id: "",
 						}),
 					],
@@ -45,14 +47,14 @@ export async function getItems() {
 						El({
 							element: "p",
 							className:
-								"item-name font-bold text-5 text-[#152536] leading-[100%]",
-							innerText: "aaa",
+								"item-name font-bold text-5 text-[#152536] leading-[100%] truncate",
+							innerText: `${item.name}`,
 						}),
 						El({
 							element: "p",
 							className:
 								"item-price font-semibold text-4 text-[#152536] leading-[100%]",
-							innerText: "",
+							innerText: ` $ ${item.price}.00`,
 						}),
 					],
 				}),

@@ -1,6 +1,5 @@
 import { router } from "../utils/router";
 import { BASE_URL } from "./BASE_URL";
-import { getItems } from "./getItems";
 
 export async function login() {
 	const userLogin = document.querySelector("#user-login");

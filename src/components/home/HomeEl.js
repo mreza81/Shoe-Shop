@@ -76,7 +76,7 @@ export function HomeEl() {
 			El({
 				element: "div",
 				className:
-					"brands flex justify-start items-center gap-3 mt-5 -mr-6 overflow-scroll no-scrollbar ",
+					"brands flex justify-start items-center gap-3 mt-5 -mr-[23px] overflow-scroll no-scrollbar ",
 				children: [
 					El({
 						element: "button",
@@ -126,7 +126,7 @@ export function HomeEl() {
 				element: "div",
 				id: "items-div",
 				className:
-					"mt-6 grid grid-cols-2 gap-x-4 gap-y-6 h-[430px] overflow-y-scroll",
+					"mt-6 grid grid-cols-2 gap-x-4 gap-y-6 h-[470px] overflow-y-scroll no-scrollbar",
 				children: [
 					// El({
 					// 	element: "div",
@@ -171,14 +171,13 @@ export function HomeEl() {
 			}),
 			El({
 				element: "p",
-				className:
-					"ml-[91px] text-3.5 font-semibold tracking-[-4%] absolute bottom-[105px]",
+				className: "ml-[91px] text-3.5 font-semibold tracking-[-4%]  mt-[54px]",
 				innerText: "Infinity Scrolling for pagination",
 			}),
 			El({
 				element: "div",
 				className:
-					"home-footer flex justify-around items-center max-h-[66px] py-3 absolute bottom-0 left-6 right-6",
+					"home-footer flex justify-around items-center max-h-[66px] py-3 fixed bottom-0 left-6 right-6",
 				children: [
 					El({
 						element: "div",

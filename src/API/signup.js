@@ -1,5 +1,4 @@
 import { BASE_URL } from "./BASE_URL";
-import { Login } from "../components/signup/login";
 export async function signup() {
 	const userSignup = document.querySelector("#userName-Signup");
 	const passSignup = document.querySelector("#password-signup");

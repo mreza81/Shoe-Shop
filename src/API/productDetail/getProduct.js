@@ -21,7 +21,6 @@ export async function getProductDetail() {
 			}
 		}
 		const data = await res.json();
-		console.log(data);
 
 		return data;
 	} catch {

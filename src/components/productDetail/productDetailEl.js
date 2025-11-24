@@ -1,8 +1,37 @@
 import { El } from "../../utils/el";
 import { router } from "../../utils/router";
+import { store } from "../../utils/store";
 
 export function productDetailEl(data) {
-	return El({
+	if (store.getState("counter") === undefined) {
+		store.setState("counter", 0);
+	}
+	store.setState("totalPrice", 0);
+
+	const handleIncrement = () => {
+		let currentValue = store.getState("counter") || 0;
+		store.setState("counter", currentValue + 1);
+		calculatePrice();
+	};
+	const handleDecrement = () => {
+		const currentValue = store.getState("counter") || 0;
+		if (currentValue > 0) {
+			store.setState("counter", currentValue - 1);
+			calculatePrice();
+		}
+	};
+	const calculatePrice = () => {
+		let count = store.getState("counter");
+
+		let totalPrice = count * data.price;
+
+		store.setState("totalPrice", totalPrice);
+
+		let priceDiv = document.getElementById("total-box");
+		priceDiv.innerText = `$ ${totalPrice}.00`;
+	};
+
+	const productDetail = El({
 		element: "div",
 		className: "product-div",
 		children: [
@@ -123,20 +152,37 @@ export function productDetailEl(data) {
 					El({
 						element: "div",
 						className:
-							"quantity-box w-[130px] h-[50px]  bg-[#F4F4F4] px-5 rounded-full flex justify-center items-center font-bold text-[20px] relative",
-						innerText: "0",
+							" w-[130px] h-[45px]  bg-[#F4F4F4] px-5 rounded-full flex justify-around items-center font-bold text-[20px] ",
+
 						children: [
 							El({
 								element: "img",
 								src: "public/assets/images/heavyminussign-svgrepo-com(1).svg",
-								className:
-									" absolute left-5 w-[14px] top-[19px] cursor-pointer",
+								className: "  w-[14px]  cursor-pointer",
+								id: "minuss-btn",
+								eventListener: [
+									{
+										event: "click",
+										callback: handleDecrement,
+									},
+								],
+							}),
+							El({
+								element: "span",
+								innerText: "0",
+								className: "quantity-box w-5 flex justify-center items-center",
 							}),
 							El({
 								element: "img",
 								src: "public/assets/images/heavyplussign-svgrepo-com(1).svg",
-								className:
-									" absolute right-5 w-[14px] h-5 top-4 cursor-pointer",
+								className: "  w-[14px] h-5 cursor-pointer",
+								id: "plus-btn",
+								eventListener: [
+									{
+										event: "click",
+										callback: handleIncrement,
+									},
+								],
 							}),
 						],
 					}),
@@ -157,11 +203,13 @@ export function productDetailEl(data) {
 							El({
 								element: "div",
 								innerText: "Total Price",
-								className: "text-[#5f5d5d] text-[14px] font-semibold",
+
+								className: " text-[#5f5d5d] text-[14px] font-semibold",
 							}),
 							El({
 								element: "div",
-								innerText: "$240.00",
+								innerText: "$0.00",
+								id: "total-box",
 								className:
 									"total-price-box text-[#101010] text-[25px] font-semibold font-propis",
 							}),
@@ -169,11 +217,30 @@ export function productDetailEl(data) {
 					}),
 					El({
 						element: "button",
-						className: "w-[260px] bg-black text-white",
-						innerText: "Add to cart",
+						className:
+							"w-[260px] bg-black text-white h-[60px] rounded-full flex justify-center items-center gap-2 cursor-pointer shadow-2xl",
+						children: [
+							El({
+								element: "img",
+								src: "public/assets/images/bag-4-svgrepo-com.svg",
+								className: "w-5 h-5",
+							}),
+							El({
+								element: "p",
+								innerText: "Add to Cart",
+								className: "text-white font-propis font-semibold ",
+							}),
+						],
 					}),
 				],
 			}),
 		],
 	});
+	store.subscribe("counter", (value) => {
+		const counterDisplay = document.querySelector(".quantity-box");
+		if (counterDisplay) {
+			counterDisplay.innerText = value !== undefined ? value : 0;
+		}
+	});
+	return productDetail;
 }

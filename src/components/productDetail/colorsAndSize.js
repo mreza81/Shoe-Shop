@@ -49,13 +49,13 @@ export async function colorOfProduct() {
 		const container = document.querySelector(".colors");
 
 		const colors = data.colors.split("|");
-		console.log(colors);
 
 		colors.forEach((item) => {
 			const color = El({
 				element: "div",
 
-				className: "size-btn cursor-pointer  rounded-full min-w-10 h-10  mt-2",
+				className:
+					"color-btn cursor-pointer  rounded-full min-w-10 h-10  mt-2 border-2 border-zinc-600",
 			});
 			// if (item == "white") {
 			// 	color.style.backgroundColor = "red";

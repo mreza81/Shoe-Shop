@@ -1,3 +1,4 @@
+import { router } from "../utils/router";
 import { BASE_URL } from "./BASE_URL/BASE_URL";
 export async function signupAPI() {
 	const userSignup = document.querySelector("#userName-Signup");
@@ -16,15 +17,13 @@ export async function signupAPI() {
 		console.log(data);
 
 		if (response.ok) {
-			alert("sign up sucess full ! please click on login btn and login here");
-			// AuthenticationDiv.innerHTML = "";
-			// AuthenticationDiv.appendChild(Login());
+			alert("sign up sucess full ! please login btn");
+			router.navigate("/login");
 		} else {
 			alert(data.message);
 		}
 	} catch {
 		throw new Error(Error);
-		
 	}
 	userSignup.value = "";
 	passSignup.value = "";

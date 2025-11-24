@@ -7,7 +7,7 @@ export async function getItems() {
 	const itemsDiv = document.getElementById("items-div");
 
 	itemsDiv.innerHTML = "";
-
+try{
 	const response = await fetch(`${BASE_URL}/sneaker?page=1&limit=100`, {
 		headers: {
 			"Content-Type": "application/json; charset=UTF-8",
@@ -74,4 +74,7 @@ export async function getItems() {
 
 		itemsDiv.append(element);
 	});
+}catch{
+	throw new Error("Eror")
+}
 }

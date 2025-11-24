@@ -10,9 +10,6 @@ export function home() {
 
 	if (!onboarding) {
 		router.navigate("/onboarding");
-	} else if (!token) {
-		alert("please signin!");
-		router.navigate("/login");
 	} else {
 		const home = HomeEl();
 

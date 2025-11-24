@@ -1,3 +1,4 @@
+import { router } from "../../utils/router";
 import { BASE_URL } from "../BASE_URL/BASE_URL";
 
 export async function getProductDetail() {
@@ -11,6 +12,14 @@ export async function getProductDetail() {
 				Authorization: `Bearer ${token}`,
 			},
 		});
+		if (!res.ok) {
+			if (res.status === 401 || res.status === 403) {
+				localStorage.removeItem("token");
+				alert("your time is ended! please login again ");
+				router.navigate("/login");
+				return;
+			}
+		}
 		const data = await res.json();
 		console.log(data);
 

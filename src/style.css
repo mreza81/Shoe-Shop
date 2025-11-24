@@ -59,3 +59,7 @@
 	-ms-overflow-style: none; /* IE & Edge */
 	scrollbar-width: none; /* Firefox */
 }
+@font-face {
+	font-family: "propis";
+	src: url("public/font/a/Raleway-SemiBold.ttf");
+}

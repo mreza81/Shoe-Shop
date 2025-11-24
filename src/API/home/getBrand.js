@@ -1,6 +1,8 @@
 import { El } from "../../utils/el";
+import { router } from "../../utils/router";
 import { BASE_URL } from "../BASE_URL/BASE_URL";
-// import { getBrand } from "./getbrand";
+
+
 
 export async function getBrand() {
 	const token = localStorage.getItem("token");
@@ -55,13 +57,14 @@ export async function getBrand() {
 								const element = El({
 									element: "div",
 									className:
-										"item w-[182px] h-[244px] p-0 flex flex-col justify-start gap-3 ",
+										"item w-[182px] h-[244px] p-0 flex flex-col justify-start gap-3 cursor-pointer ",
 									id: "",
 									eventListener: [
 										{
 											event: "click",
 											callback: () => {
 												sessionStorage.setItem("item-id", `${item.id}`);
+												router.navigate("/product-detail");
 											},
 										},
 									],

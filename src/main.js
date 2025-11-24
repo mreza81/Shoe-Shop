@@ -6,6 +6,7 @@ import "./style.css";
 import { router } from "./utils/router.js";
 import { signupPage } from "./pages/signUpPage.js";
 import { loginPage } from "./pages/loginPage.js";
+import { productDetailPage } from "./pages/productDetailPage.js";
 Swiper.use([Navigation, Pagination]);
 
 const app = document.getElementById("app");
@@ -16,6 +17,7 @@ router.addRoute("/", HomePage);
 router.addRoute("/onboarding", OnboardingPage);
 router.addRoute("/signup", signupPage);
 router.addRoute("/login", loginPage);
+router.addRoute("/product-detail", productDetailPage);
 
 router.init(container);
 // localStorage.removeItem("token");

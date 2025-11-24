@@ -25,13 +25,14 @@ export async function getItems() {
 		const element = El({
 			element: "div",
 			className:
-				"item w-[182px] h-[244px] p-0 flex flex-col justify-start gap-3 ",
+				"item w-[182px] h-[244px] p-0 flex flex-col justify-start gap-3 cursor-pointer ",
 			id: "",
 			eventListener: [
 				{
 					event: "click",
 					callback: () => {
 						sessionStorage.setItem("item-id", `${item.id}`);
+						router.navigate("/product-detail");
 					},
 				},
 			],

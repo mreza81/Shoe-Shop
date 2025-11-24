@@ -71,13 +71,20 @@ export function productDetailEl(data) {
 			El({
 				element: "div",
 				innerText: "Description",
-				className: "font-[propis] mx-6 mt-5 text-[#323131]",
+				className: "font-[propis] mx-6 mt-5 text-[#161616]",
 			}),
 			El({
 				element: "div",
 				innerText:
 					"Lorem ipsum dolorconsectetur adipisicing elit.etf Excepturi a ut test agh adipisicing elit juve hyipe hgfr lorem",
 				className: " mx-6 mt-[7px] text-[14px] text-[#636262] lending-[1px]",
+			}),
+			El({
+				element: "div",
+				className:
+					"sizes ml-6 mt-3 text-[#161616] font-[propis] text-[18px] overflow-scroll ",
+				innerText: "Size",
+				children: {},
 			}),
 		],
 	});

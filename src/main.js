@@ -22,7 +22,6 @@ router.addRoute("/login", loginPage);
 router.addRoute("/product-detail", productDetailPage);
 
 router.init(container);
-console.log(store.getItem("counter"));
 
 // localStorage.removeItem("token");
 // localStorage.removeItem("onboarding");

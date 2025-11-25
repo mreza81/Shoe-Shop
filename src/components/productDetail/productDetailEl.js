@@ -1,33 +1,34 @@
+import { addToCard } from "../../API/productDetail/addToCart";
 import { El } from "../../utils/el";
 import { router } from "../../utils/router";
 import { store } from "../../utils/store";
 
 export function productDetailEl(data) {
-	if (store.getState("counter") === undefined) {
-		store.setState("counter", 0);
+	if (store.getState(`counter${data.id}`) === undefined) {
+		store.setState(`counter${data.id}`, 0);
 	}
-	store.setState("totalPrice", 0);
+	store.setState(`totalPrice${data.id}`, 0);
 
 	const handleIncrement = () => {
-		let currentValue = store.getState("counter") || 0;
-		store.setState("counter", currentValue + 1);
+		let currentValue = store.getState(`counter${data.id}`) || 0;
+		store.setState(`counter${data.id}`, currentValue + 1);
 		calculatePrice();
 	};
 	const handleDecrement = () => {
-		const currentValue = store.getState("counter") || 0;
+		const currentValue = store.getState(`counter${data.id}`) || 0;
 		if (currentValue > 0) {
-			store.setState("counter", currentValue - 1);
+			store.setState(`counter${data.id}`, currentValue - 1);
 			calculatePrice();
 		}
 	};
 	const calculatePrice = () => {
-		let count = store.getState("counter");
+		let count = store.getState(`counter${data.id}`);
 
 		let totalPrice = count * data.price;
 
-		store.setState("totalPrice", totalPrice);
+		store.setState(`totalPrice${data.id}`, totalPrice);
 
-		let priceDiv = document.getElementById("total-box");
+		let priceDiv = document.getElementById(`total-box-${data.id}`);
 		priceDiv.innerText = `$ ${totalPrice}.00`;
 	};
 
@@ -169,7 +170,7 @@ export function productDetailEl(data) {
 							}),
 							El({
 								element: "span",
-								innerText: "0",
+								innerText: store.getState(`counter${data.id}`),
 								className: "quantity-box w-5 flex justify-center items-center",
 							}),
 							El({
@@ -208,8 +209,8 @@ export function productDetailEl(data) {
 							}),
 							El({
 								element: "div",
-								innerText: "$0.00",
-								id: "total-box",
+								innerText: `$ ${store.getState(`totalPrice${data.id}`)}.00`,
+								id: `total-box-${data.id}`,
 								className:
 									"total-price-box text-[#101010] text-[25px] font-semibold font-propis",
 							}),
@@ -217,6 +218,12 @@ export function productDetailEl(data) {
 					}),
 					El({
 						element: "button",
+						eventListener: [
+							{
+								event: "click",
+								callback: addToCard,
+							},
+						],
 						className:
 							"w-[260px] bg-black text-white h-[60px] rounded-full flex justify-center items-center gap-2 cursor-pointer shadow-2xl",
 						children: [
@@ -236,7 +243,7 @@ export function productDetailEl(data) {
 			}),
 		],
 	});
-	store.subscribe("counter", (value) => {
+	store.subscribe(`counter${data.id}`, (value) => {
 		const counterDisplay = document.querySelector(".quantity-box");
 		if (counterDisplay) {
 			counterDisplay.innerText = value !== undefined ? value : 0;

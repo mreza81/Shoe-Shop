@@ -62,9 +62,9 @@ export function productDetailEl(data) {
 				children: [
 					El({
 						element: "div",
-						innerText: `${data.category}  Sportwear`,
+						innerText: data.name,
 						className:
-							" text-[27px] text-[#152536] font-inter-bold min-w-[340px]",
+							" text-[27px] text-[#152536] font-inter-bold  max-w-[300px] whitespace-nowrap truncate",
 					}),
 					El({
 						element: "img",
@@ -131,7 +131,7 @@ export function productDetailEl(data) {
 					El({
 						element: "div",
 						className:
-							"colorDiv mt-3 text-[#161616] font-[propis] font-bold text-[18px] ml-[50px] absolute bottom-[242px] left-[163px]  ",
+							"colorDiv mt-3 text-[#161616] font-[propis] font-bold text-[18px] ml-[50px] absolute bottom-[255px] left-[158px]  ",
 						innerText: "Color",
 					}),
 					El({

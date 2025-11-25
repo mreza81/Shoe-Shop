@@ -1,6 +1,6 @@
 import Swiper from "swiper";
 import { Navigation, Pagination } from "swiper/modules";
-import { cardPage } from "./pages/cardPage.js";
+import { cartPage } from "./pages/cartPage.js";
 import { HomePage } from "./pages/homePage.js";
 import { loginPage } from "./pages/loginPage.js";
 import { OnboardingPage } from "./pages/onboardingPage.js";
@@ -19,7 +19,7 @@ router.addRoute("/onboarding", OnboardingPage);
 router.addRoute("/signup", signupPage);
 router.addRoute("/login", loginPage);
 router.addRoute("/product-detail", productDetailPage);
-router.addRoute("/card", cardPage);
+router.addRoute("/cart", cartPage);
 
 router.init(container);
 

@@ -1,6 +1,7 @@
 import { getGreeting, getUserName } from "../../../js/welcome";
 import { getItems } from "../../API/home/getItems";
 import { El } from "../../utils/el";
+import { router } from "../../utils/router";
 
 export function HomeEl() {
 	return El({
@@ -140,8 +141,17 @@ export function HomeEl() {
 					}),
 					El({
 						element: "div",
-						className: "flex flex-col justify-center items-center gap-.5",
+						className:
+							"flex flex-col justify-center items-center gap-.5 cursor-pointer",
 						id: "home-footer-cart",
+						eventListener: [
+							{
+								event: "click",
+								callback: (e) => {
+									router.navigate("/cart");
+								},
+							},
+						],
 						children: [
 							El({
 								element: "img",

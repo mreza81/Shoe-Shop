@@ -1,3 +1,4 @@
+import { router } from "../../utils/router";
 import { store } from "../../utils/store";
 import { BASE_URL } from "../BASE_URL/BASE_URL";
 
@@ -21,11 +22,9 @@ export async function addToCard() {
 		const data = await res.json();
 
 		if (!res.ok) {
-			console.log(data);
-
 			alert(data.message);
 		}
-		alert("itam added to your cart");
+		router.navigate("/cart");
 	} catch {
 		throw new Error("Eror to add card");
 	}

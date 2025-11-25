@@ -1,4 +1,5 @@
 import { El } from "../../utils/el";
+import { router } from "../../utils/router";
 
 export function cardEl() {
 	const card = El({
@@ -7,7 +8,7 @@ export function cardEl() {
 		children: [
 			El({
 				element: "div",
-				className: "card-header flex justify-between items-center mx-6",
+				className: "card-header flex justify-between items-center mx-6 ",
 				children: [
 					El({
 						element: "div",
@@ -35,12 +36,13 @@ export function cardEl() {
 			}),
 			El({
 				element: "div",
-				className: "card-items-div mx-6",
+				className:
+					"card-items-div mx-6 mt-8 flex flex-col gap-6 h-[650px] overflow-scroll",
 			}),
 			El({
 				element: "div",
 				className:
-					"page-footer mt-[670px] h-[190px] w-full bg-white rounded-t-[32px] border-t border-gray-200 shadow-xl shadow-black/10 ",
+					"page-footer mt-[0px] h-[190px] w-full bg-white rounded-t-[32px] border-t border-gray-200 shadow-xl shadow-black/10 ",
 				children: [
 					El({
 						element: "div",
@@ -68,6 +70,11 @@ export function cardEl() {
 								element: "button",
 								className:
 									"w-[260px] bg-black text-white h-[65px] rounded-full flex justify-center items-center gap-4 cursor-pointer shadow-xl",
+								eventListener: [
+									{
+										event: "click",
+									},
+								],
 								children: [
 									El({
 										element: "p",
@@ -90,8 +97,17 @@ export function cardEl() {
 						children: [
 							El({
 								element: "div",
-								className: "flex flex-col justify-center items-center gap-1",
+								className:
+									"flex flex-col justify-center items-center gap-1 cursor-pointer",
 								id: "home-footer-home",
+								eventListener: [
+									{
+										event: "click",
+										callback: () => {
+											router.navigate("/");
+										},
+									},
+								],
 								children: [
 									El({
 										element: "img",
@@ -110,6 +126,7 @@ export function cardEl() {
 								element: "div",
 								className: "flex flex-col justify-center items-center gap-1",
 								id: "home-footer-cart",
+
 								children: [
 									El({
 										element: "img",

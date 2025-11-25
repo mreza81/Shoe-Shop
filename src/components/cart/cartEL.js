@@ -1,10 +1,11 @@
 import { El } from "../../utils/el";
 import { router } from "../../utils/router";
+import { closeModal } from "./handleMdal";
 
 export function cardEl() {
 	const card = El({
 		element: "div",
-		className: "card-container  mt-[31px]",
+		className: "card-container pt-[31px] ",
 		children: [
 			El({
 				element: "div",
@@ -37,7 +38,7 @@ export function cardEl() {
 			El({
 				element: "div",
 				className:
-					"card-items-div mx-6 mt-8 flex flex-col gap-6 h-[650px] overflow-scroll",
+					"card-items-div mx-6 mt-8 flex flex-col gap-6 h-[638px] overflow-scroll no-scrollbar",
 			}),
 			El({
 				element: "div",
@@ -61,8 +62,9 @@ export function cardEl() {
 									}),
 									El({
 										element: "p",
-										innerText: "$585.00",
+										innerText: "$0.00",
 										className: " text-black text-[25px] font-inter-bold",
+										id: "cart-totalPrice",
 									}),
 								],
 							}),
@@ -198,6 +200,24 @@ export function cardEl() {
 						],
 					}),
 				],
+			}),
+			El({
+				element: "div",
+				id: "card-overlay",
+				className:
+					"bg-gray-700  w-full h-[926px] fixed top-0 left-0 z-3 hidden opacity-0 transition-opacity duration-300",
+				eventListener: [
+					{
+						event: "click",
+						callback: closeModal,
+					},
+				],
+			}),
+			El({
+				element: "div",
+				id: "card-modal",
+				className:
+					" h-[420px] w-full bg-white rounded-t-[32px] border-t border-gray-200 shadow-xl shadow-black/10 fixed z-4 bottom-0 hidden opacity-0 transition-opacity duration-300 -translate-x -translate-y",
 			}),
 		],
 	});

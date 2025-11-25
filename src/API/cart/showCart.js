@@ -1,11 +1,12 @@
+import { openModal } from "../../components/cart/handleMdal";
 import { El } from "../../utils/el";
 import { router } from "../../utils/router";
 import { BASE_URL } from "../BASE_URL/BASE_URL";
 
 export async function showCart() {
-	// console.log(store.getState(""));
 	const token = localStorage.getItem("token");
 	const itemsDiv = document.getElementsByClassName("card-items-div")[0];
+	const totalPrice = document.getElementById("cart-totalPrice");
 	try {
 		const res = await fetch(`${BASE_URL}/cart`, {
 			headers: {
@@ -23,7 +24,7 @@ export async function showCart() {
 		}
 
 		const data = await res.json();
-		console.log(data);
+
 		data.forEach((item) => {
 			const cards = El({
 				element: "div",
@@ -32,7 +33,11 @@ export async function showCart() {
 				eventListener: [
 					{
 						event: "click",
-						callback: () => {},
+						callback: () => {
+							sessionStorage.setItem("item-id", `${item.sneaker.id}`);
+
+							router.navigate("/product-detail");
+						},
 					},
 				],
 				children: [
@@ -58,8 +63,17 @@ export async function showCart() {
 									}),
 									El({
 										element: "img",
-										className: "trash h-5 cursor-pointer",
+										className: "trash h-5 w-5 cursor-pointer",
 										src: "public/assets/images/trash-bin-svgrepo-com.svg",
+										eventListener: [
+											{
+												event: "click",
+												callback: (e) => {
+													e.stopPropagation();
+													openModal();
+												},
+											},
+										],
 									}),
 								],
 							}),
@@ -127,9 +141,14 @@ export async function showCart() {
 					}),
 				],
 			});
+
 			itemsDiv.append(cards);
 		});
+		const sum = data.reduce((sum, item) => {
+			return sum + Number(item.quantity) * Number(item.sneaker.price);
+		}, 0);
+		totalPrice.innerText = `$${sum},00`;
 	} catch {
-		throw new Error(data.message);
+		throw new Error(Error);
 	}
 }

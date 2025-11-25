@@ -34,7 +34,7 @@ export function productDetailEl(data) {
 
 	const productDetail = El({
 		element: "div",
-		className: "product-div",
+		className: "product-div ",
 		children: [
 			El({
 				element: "img",
@@ -53,7 +53,7 @@ export function productDetailEl(data) {
 			El({
 				element: "img",
 				src: data.imageURL,
-				className: " w-full",
+				className: " w-full min-h-[430px] max-h-[430px]",
 			}),
 			El({
 				element: "div",
@@ -131,7 +131,7 @@ export function productDetailEl(data) {
 					El({
 						element: "div",
 						className:
-							"colorDiv mt-3 text-[#161616] font-[propis] font-bold text-[18px] ml-[50px] absolute bottom-[255px] left-[158px]  ",
+							"colorDiv mt-3 text-[#161616] font-[propis] font-bold text-[18px] ml-[50px] absolute bottom-[240px] left-[158px]  ",
 						innerText: "Color",
 					}),
 					El({

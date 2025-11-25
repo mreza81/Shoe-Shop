@@ -21,10 +21,11 @@ export async function addToCard() {
 		const data = await res.json();
 
 		if (!res.ok) {
-			console.log(data.message);
+			console.log(data);
 
 			alert(data.message);
 		}
+		alert("itam added to your cart");
 	} catch {
 		throw new Error("Eror to add card");
 	}

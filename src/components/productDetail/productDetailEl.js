@@ -5,18 +5,18 @@ import { store } from "../../utils/store";
 
 export function productDetailEl(data) {
 	if (store.getState(`counter${data.id}`) === undefined) {
-		store.setState(`counter${data.id}`, 0);
+		store.setState(`counter${data.id}`, 1);
 	}
-	store.setState(`totalPrice${data.id}`, 0);
+	store.setState(`totalPrice${data.id}`, data.price);
 
 	const handleIncrement = () => {
-		let currentValue = store.getState(`counter${data.id}`) || 0;
+		let currentValue = store.getState(`counter${data.id}`) || 1;
 		store.setState(`counter${data.id}`, currentValue + 1);
 		calculatePrice();
 	};
 	const handleDecrement = () => {
-		const currentValue = store.getState(`counter${data.id}`) || 0;
-		if (currentValue > 0) {
+		const currentValue = store.getState(`counter${data.id}`) || 1;
+		if (currentValue > 1) {
 			store.setState(`counter${data.id}`, currentValue - 1);
 			calculatePrice();
 		}
@@ -45,7 +45,7 @@ export function productDetailEl(data) {
 						event: "click",
 						callback: () => {
 							router.navigate("/");
-							store.setState(`counter${data.id}`, 0);
+							store.setState(`counter${data.id}`, 1);
 						},
 					},
 				],
@@ -64,7 +64,7 @@ export function productDetailEl(data) {
 						element: "div",
 						innerText: `${data.category}  Sportwear`,
 						className:
-							" text-[27px] text-[#152536] font-inter font-[propis] min-w-[340px]",
+							" text-[27px] text-[#152536] font-inter-bold min-w-[340px]",
 					}),
 					El({
 						element: "img",
@@ -210,7 +210,7 @@ export function productDetailEl(data) {
 							}),
 							El({
 								element: "div",
-								innerText: "$ 0.00",
+								innerText: `$ ${data.price}.00`,
 								id: `total-box-${data.id}`,
 								className:
 									"total-price-box text-[#101010] text-[25px] font-semibold font-propis",

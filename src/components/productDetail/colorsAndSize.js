@@ -57,7 +57,7 @@ export async function colorOfProduct() {
 				element: "div",
 
 				className:
-					"color-btn cursor-pointer visible rounded-full min-w-10 h-10  mt-2 flex justify-center items-center ",
+					"color-btn cursor-pointer visible rounded-full min-w-10 h-10  mt-2 flex justify-center items-center border-2 border-gray-200",
 
 				children: [
 					El({

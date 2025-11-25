@@ -40,7 +40,7 @@ export function cardEl() {
 			El({
 				element: "div",
 				className:
-					"page-footer mt-[680px] h-[180px] w-full bg-white rounded-t-[32px] border-t border-gray-200 shadow-xl shadow-black/10 ",
+					"page-footer mt-[670px] h-[190px] w-full bg-white rounded-t-[32px] border-t border-gray-200 shadow-xl shadow-black/10 ",
 				children: [
 					El({
 						element: "div",
@@ -67,7 +67,7 @@ export function cardEl() {
 							El({
 								element: "button",
 								className:
-									"w-[260px] bg-black text-white h-[65px] rounded-full flex justify-center items-center gap-4 cursor-pointer shadow-2xl",
+									"w-[260px] bg-black text-white h-[65px] rounded-full flex justify-center items-center gap-4 cursor-pointer shadow-xl",
 								children: [
 									El({
 										element: "p",
@@ -85,7 +85,100 @@ export function cardEl() {
 					}),
 					El({
 						element: "div",
-						className: "",
+						className:
+							"footer-buttom mx-5 mt-10 flex justify-around items-center",
+						children: [
+							El({
+								element: "div",
+								className: "flex flex-col justify-center items-center gap-1",
+								id: "home-footer-home",
+								children: [
+									El({
+										element: "img",
+										className: "w-[27px]",
+										src: "public/assets/images/home.png",
+									}),
+									El({
+										element: "p",
+										className:
+											"text-[13px] font-semibold text-[#152536] tracking-[-4%]",
+										innerText: "Home",
+									}),
+								],
+							}),
+							El({
+								element: "div",
+								className: "flex flex-col justify-center items-center gap-1",
+								id: "home-footer-cart",
+								children: [
+									El({
+										element: "img",
+										className: "w-[25px] mt-[3px]",
+										src: "public/assets/images/cart-select.png ",
+									}),
+									El({
+										element: "p",
+										className:
+											"text-[13px] font-semibold text-[#152536] tracking-[-4%]",
+										innerText: "Cart",
+									}),
+								],
+							}),
+							El({
+								element: "div",
+								className: "flex flex-col justify-center items-center gap-1",
+								id: "home-footer-Orders",
+								children: [
+									El({
+										element: "img",
+										className: "w-[25px] mt-[3px]",
+										src: "public/assets/images/cart2.png",
+									}),
+									El({
+										element: "p",
+										className:
+											"text-[13px] font-semibold text-[#152536] tracking-[-4%]",
+										innerText: "Orders",
+									}),
+								],
+							}),
+							El({
+								element: "div",
+								className: "flex flex-col justify-center items-center gap-1",
+								id: "home-footer-wallet",
+								children: [
+									El({
+										element: "img",
+										className: "w-[23px] mt-[3px]",
+										src: "public/assets/images/wallet2.png",
+									}),
+									El({
+										element: "p",
+										className:
+											"text-[13px] font-semibold text-[#152536] tracking-[-4%]",
+										innerText: "Wallet",
+									}),
+								],
+							}),
+							El({
+								element: "div",
+								className: "flex flex-col justify-center items-center gap-1",
+								id: "home-footer-profile",
+								children: [
+									El({
+										element: "img",
+										className: "w-[25px] mt-[3px]",
+										src: "public/assets/images/person.png",
+									}),
+									El({
+										element: "p",
+										className:
+											"text-[13px] font-semibold text-[#152536] tracking-[-4%]",
+										innerText: "Profile",
+									}),
+								],
+							}),
+						],
 					}),
 				],
 			}),

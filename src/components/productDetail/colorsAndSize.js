@@ -24,12 +24,14 @@ export async function sizeOfProduct() {
 							const sizeBtn = document.querySelectorAll(".size-btn");
 							sizeBtn.forEach((item) => {
 								item.classList.remove("bg-black");
-								item.classList.remove("text-zinc-600");
+								item.classList.remove("text-white");
 							});
-							const btn = e.currentTarget;
+							const btn = e.target;
 							console.log(btn);
-							btn.style.background = "black";
-							btn.style.color = "white";
+							btn.classList.remove("bg-white");
+							btn.classList.add("bg-black");
+							btn.classList.remove("text-zinc-600");
+							btn.classList.add("text-white");
 						},
 					},
 				],
@@ -55,11 +57,31 @@ export async function colorOfProduct() {
 				element: "div",
 
 				className:
-					"color-btn cursor-pointer  rounded-full min-w-10 h-10  mt-2 border-2 border-zinc-600",
+					"color-btn cursor-pointer visible rounded-full min-w-10 h-10  mt-2 flex justify-center items-center ",
+
+				children: [
+					El({
+						element: "img",
+						src: "public/assets/images/check-svgrepo-com.svg",
+						className: "check hidden w-7",
+					}),
+				],
+				eventListener: [
+					{
+						event: "click",
+						callback: (e) => {
+							let check = document.querySelectorAll(".check");
+							check.forEach((item) => {
+								item.classList.add("hidden");
+							});
+							const checkImg = e.currentTarget.children[0];
+
+							checkImg.classList.remove("hidden");
+						},
+					},
+				],
 			});
-			// if (item == "white") {
-			// 	color.style.backgroundColor = "red";
-			// }
+
 			color.style.backgroundColor = item;
 
 			container.appendChild(color);

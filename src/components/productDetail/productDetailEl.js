@@ -45,6 +45,7 @@ export function productDetailEl(data) {
 						event: "click",
 						callback: () => {
 							router.navigate("/");
+							store.setState(`counter${data.id}`, 0);
 						},
 					},
 				],
@@ -209,7 +210,7 @@ export function productDetailEl(data) {
 							}),
 							El({
 								element: "div",
-								innerText: `$ ${store.getState(`totalPrice${data.id}`)}.00`,
+								innerText: "$ 0.00",
 								id: `total-box-${data.id}`,
 								className:
 									"total-price-box text-[#101010] text-[25px] font-semibold font-propis",

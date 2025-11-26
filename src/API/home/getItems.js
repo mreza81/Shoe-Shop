@@ -18,7 +18,7 @@ export async function getItems() {
 		const itemsArray = data.data;
 		if (!itemsArray) {
 			alert("your time is ended!!please login again");
-			router.navigate("/signup");
+			router.navigate("/login");
 		}
 
 		itemsArray.forEach((item) => {

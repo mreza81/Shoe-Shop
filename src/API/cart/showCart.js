@@ -2,6 +2,7 @@ import { openModal } from "../../components/cart/handleMdal";
 import { El } from "../../utils/el";
 import { router } from "../../utils/router";
 import { BASE_URL } from "../BASE_URL/BASE_URL";
+import { decreaseCartQuantity, increaseCartQuantity } from "./updateCart";
 
 export async function showCart() {
 	const token = localStorage.getItem("token");
@@ -31,6 +32,7 @@ export async function showCart() {
 				element: "div",
 				className:
 					"cart bg-white border border-gray-200 rounded-3xl shadow-2xl shadow-gray-200 p-4 flex justify-start items-center gap-4 ",
+				id: `cart-${item.id}`,
 				eventListener: [
 					{
 						event: "click",
@@ -115,6 +117,7 @@ export async function showCart() {
 										element: "div",
 										innerText: `$ ${item.quantity * item.sneaker.price}.00`,
 										className: "font-inter-bold text-[18px] ",
+										id: `tPrice-${item.id}`,
 									}),
 									El({
 										element: "div",
@@ -124,17 +127,56 @@ export async function showCart() {
 											El({
 												element: "img",
 												src: "public/assets/images/heavyminussign-svgrepo-com(1).svg",
-												className: "w-2",
+												className: "w-2 cursor-pointer",
+												eventListener: [
+													{
+														event: "click",
+														callback: async (e) => {
+															e.stopPropagation();
+															sessionStorage.setItem("cart-id", `${item.id}`);
+															console.log(item);
+															await decreaseCartQuantity(item);
+
+															const sum = data.reduce((sum, item) => {
+																return (
+																	sum +
+																	Number(item.quantity) *
+																		Number(item.sneaker.price)
+																);
+															}, 0);
+															totalPrice.innerText = `$${sum},00`;
+														},
+													},
+												],
 											}),
 											El({
 												element: "span",
 												className: "text-[14px]",
 												innerText: item.quantity,
+												id: `quantityCart-${item.id}`,
 											}),
 											El({
 												element: "img",
 												src: "public/assets/images/heavyplussign-svgrepo-com(1).svg",
-												className: "w-2",
+												className: "w-2 cursor-pointer",
+												eventListener: [
+													{
+														event: "click",
+														callback: async (e) => {
+															e.stopPropagation();
+															sessionStorage.setItem("cart-id", `${item.id}`);
+															await increaseCartQuantity(item);
+															const sum = data.reduce((sum, item) => {
+																return (
+																	sum +
+																	Number(item.quantity) *
+																		Number(item.sneaker.price)
+																);
+															}, 0);
+															totalPrice.innerText = `$${sum},00`;
+														},
+													},
+												],
 											}),
 										],
 									}),

@@ -134,7 +134,7 @@ export async function showCart() {
 														callback: async (e) => {
 															e.stopPropagation();
 															sessionStorage.setItem("cart-id", `${item.id}`);
-															console.log(item);
+
 															await decreaseCartQuantity(item);
 
 															const sum = data.reduce((sum, item) => {

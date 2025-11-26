@@ -8,6 +8,7 @@ import { productDetailPage } from "./pages/productDetailPage.js";
 import { signupPage } from "./pages/signUpPage.js";
 import "./style.css";
 import { router } from "./utils/router.js";
+import { searchPage } from "./pages/searchPage.js";
 Swiper.use([Navigation, Pagination]);
 
 const app = document.getElementById("app");
@@ -20,6 +21,7 @@ router.addRoute("/signup", signupPage);
 router.addRoute("/login", loginPage);
 router.addRoute("/product-detail", productDetailPage);
 router.addRoute("/cart", cartPage);
+router.addRoute("/search", searchPage);
 
 router.init(container);
 

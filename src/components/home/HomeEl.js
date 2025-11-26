@@ -54,6 +54,15 @@ export function HomeEl() {
 				className:
 					"w-full h-[37px] bg-[#FAFAFA] mt-6 px-[34px] rounded-1 text-[14px] cursor-pointer",
 				placeholder: "Search",
+				eventListener: [
+					{
+						event: "click",
+						callback: (e) => {
+							router.navigate("/search");
+							console.log("hello");
+						},
+					},
+				],
 			}),
 			El({
 				element: "img",

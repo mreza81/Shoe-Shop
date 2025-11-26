@@ -13,8 +13,8 @@ export function productDetailEl(data) {
 
 	const handleIncrement = () => {
 		let currentValue = store.getState(`counter${data.id}`) || 1;
-		if (currentValue < data.pid)
-			store.setState(`counter${data.id}`, currentValue + 1);
+
+		store.setState(`counter${data.id}`, currentValue + 1);
 		calculatePrice();
 	};
 	const handleDecrement = () => {

@@ -205,19 +205,13 @@ export function cardEl() {
 				element: "div",
 				id: "card-overlay",
 				className:
-					"bg-gray-700  w-full h-[926px] fixed top-0 left-0 z-3 visible  transition-opacity duration-300",
-				eventListener: [
-					{
-						event: "click",
-						callback: closeModal,
-					},
-				],
+					"bg-gray-700  w-full h-[926px] fixed top-0 left-0 z-3 hidden opacity-0  transition-opacity duration-300",
 			}),
 			El({
 				element: "div",
 				id: "card-modal",
 				className:
-					" h-[420px] w-full bg-white rounded-t-[32px]  border-gray-200 shadow-xl visible shadow-black/10 fixed z-4 bottom-0   transition-opacity duration-300 -translate-x -translate-y",
+					" h-[420px] w-full bg-white rounded-t-[32px]  border-gray-200 shadow-xl hidden opacity-0 shadow-black/10 fixed z-4 bottom-0   transition-opacity duration-300 -translate-x -translate-y",
 				children: [
 					El({
 						element: "div",
@@ -237,16 +231,44 @@ export function cardEl() {
 							El({
 								element: "div",
 								innerText: "Remove From Cart?",
-								className: "font-inter-bold text-center text-[23px] mt-4",
+								className: "font-inter-bold text-center text-[23px] mt-6",
 							}),
 							El({
 								element: "div",
-								className: "w-full h-[1px]  bg-[#e1e1e1] mt-4  ",
+								className: "w-full h-[1px]  bg-[#e1e1e1] mt-6 ",
 							}),
 							El({
 								element: "div",
-								className: "delet-cart mt-5",
-								id:"delet-cart"
+								className: "delet-cart mt-6",
+								id: "delet-cart",
+							}),
+							El({
+								element: "div",
+								className: "w-full h-[1px]  bg-[#e1e1e1] mt-5  ",
+							}),
+							El({
+								element: "div",
+								className: "flex justify-between items-center mt-6",
+								children: [
+									El({
+										element: "button",
+										innerText: "Cancle",
+										className:
+											"w-[178px] h-[60px] bg-[#e1e1e1] rounded-full font-inter-bold text-[16px] cursor-pointer",
+										eventListener: [
+											{
+												event: "click",
+												callback: closeModal,
+											},
+										],
+									}),
+									El({
+										element: "button",
+										innerText: "Yes,Remove",
+										className:
+											"w-[178px] h-[60px] bg-[#000000] text-white rounded-full font-inter-bold text-[16px] cursor-pointer",
+									}),
+								],
 							}),
 						],
 					}),

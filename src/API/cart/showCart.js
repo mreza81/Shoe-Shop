@@ -70,7 +70,7 @@ export async function showCart() {
 												event: "click",
 												callback: (e) => {
 													e.stopPropagation();
-													openModal();
+													openModal(item);
 												},
 											},
 										],

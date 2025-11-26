@@ -205,7 +205,7 @@ export function cardEl() {
 				element: "div",
 				id: "card-overlay",
 				className:
-					"bg-gray-700  w-full h-[926px] fixed top-0 left-0 z-3 hidden opacity-0 transition-opacity duration-300",
+					"bg-gray-700  w-full h-[926px] fixed top-0 left-0 z-3 visible  transition-opacity duration-300",
 				eventListener: [
 					{
 						event: "click",
@@ -217,7 +217,40 @@ export function cardEl() {
 				element: "div",
 				id: "card-modal",
 				className:
-					" h-[420px] w-full bg-white rounded-t-[32px] border-t border-gray-200 shadow-xl shadow-black/10 fixed z-4 bottom-0 hidden opacity-0 transition-opacity duration-300 -translate-x -translate-y",
+					" h-[420px] w-full bg-white rounded-t-[32px]  border-gray-200 shadow-xl visible shadow-black/10 fixed z-4 bottom-0   transition-opacity duration-300 -translate-x -translate-y",
+				children: [
+					El({
+						element: "div",
+						className: "modal-container px-6 pt-3",
+						children: [
+							El({
+								element: "div",
+								className: "w-full flex justify-center items-center",
+								children: [
+									El({
+										element: "div",
+										className:
+											"w-[40px] h-[3px]  bg-[#e1e1e1]  rounded-[50px]  ",
+									}),
+								],
+							}),
+							El({
+								element: "div",
+								innerText: "Remove From Cart?",
+								className: "font-inter-bold text-center text-[23px] mt-4",
+							}),
+							El({
+								element: "div",
+								className: "w-full h-[1px]  bg-[#e1e1e1] mt-4  ",
+							}),
+							El({
+								element: "div",
+								className: "delet-cart mt-5",
+								id:"delet-cart"
+							}),
+						],
+					}),
+				],
 			}),
 		],
 	});

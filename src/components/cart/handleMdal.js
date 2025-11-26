@@ -1,7 +1,10 @@
-export function openModal() {
+import { deletItemEl } from "./deletItemEl";
+
+export function openModal(item) {
 	const overLay = document.getElementById("card-overlay");
 	const modal = document.getElementById("card-modal");
-
+	document.querySelector("#delet-cart").innerHTML = "";
+	deletItemEl(item);
 	modal.classList.remove("hidden");
 	overLay.classList.remove("hidden");
 	modal.classList.add("visible");

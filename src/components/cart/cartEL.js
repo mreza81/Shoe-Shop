@@ -1,8 +1,11 @@
+import { deleteCard } from "../../API/cart/deletecard";
+import { showCart } from "../../API/cart/showCart";
 import { El } from "../../utils/el";
 import { router } from "../../utils/router";
 import { closeModal } from "./handleMdal";
 
 export function cardEl() {
+	sessionStorage.setItem("route", router.getCurrentRoute());
 	const card = El({
 		element: "div",
 		className: "card-container pt-[31px] ",
@@ -267,6 +270,16 @@ export function cardEl() {
 										innerText: "Yes,Remove",
 										className:
 											"w-[178px] h-[60px] bg-[#000000] text-white rounded-full font-inter-bold text-[16px] cursor-pointer",
+										eventListener: [
+											{
+												event: "click",
+												callback: async () => {
+													closeModal();
+													await deleteCard();
+													await showCart();
+												},
+											},
+										],
 									}),
 								],
 							}),

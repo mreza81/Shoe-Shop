@@ -44,7 +44,7 @@ export function productDetailEl(data) {
 					{
 						event: "click",
 						callback: () => {
-							router.navigate("/");
+							router.navigate(sessionStorage.getItem("route"));
 							store.setState(`counter${data.id}`, 1);
 						},
 					},

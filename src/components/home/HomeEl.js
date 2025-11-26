@@ -4,6 +4,8 @@ import { El } from "../../utils/el";
 import { router } from "../../utils/router";
 
 export function HomeEl() {
+	sessionStorage.setItem("route", router.getCurrentRoute());
+
 	return El({
 		element: "div",
 		className: "home-container px-6",

@@ -11,7 +11,8 @@ export function deletItemEl(item) {
 			El({
 				element: "img",
 				src: item.sneaker.imageURL,
-				className: "max-w-[126px] rounded-3xl",
+				className:
+					"min-w-[126px] max-w-[126px] min-h-[126px] max-h-[126px] rounded-3xl ",
 			}),
 			El({
 				element: "div",

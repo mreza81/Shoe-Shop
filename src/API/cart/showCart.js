@@ -14,6 +14,8 @@ export async function showCart() {
 				Authorization: `Bearer ${token}`,
 			},
 		});
+		itemsDiv.innerHTML = "";
+
 		if (!res.ok) {
 			if (res.status === 401 || res.status === 403) {
 				localStorage.removeItem("token");
@@ -22,9 +24,8 @@ export async function showCart() {
 				return;
 			}
 		}
-
+		itemsDiv.innerHTML = "";
 		const data = await res.json();
-
 		data.forEach((item) => {
 			const cards = El({
 				element: "div",
@@ -44,7 +45,8 @@ export async function showCart() {
 					El({
 						element: "img",
 						src: item.sneaker.imageURL,
-						className: "max-w-[126px] rounded-3xl",
+						className:
+							"min-w-[126px] max-w-[126px] rounded-3xl min-h-[126px] max-h-[126px]",
 					}),
 					El({
 						element: "div",
@@ -69,6 +71,7 @@ export async function showCart() {
 											{
 												event: "click",
 												callback: (e) => {
+													sessionStorage.setItem("cart-id", item.id);
 													e.stopPropagation();
 													openModal(item);
 												},

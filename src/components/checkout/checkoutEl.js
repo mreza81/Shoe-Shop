@@ -4,7 +4,7 @@ import { router } from "../../utils/router";
 export function checkoutEl() {
 	return El({
 		element: "div",
-		className: "checkout-container px-6 pt-8",
+		className: "checkout-container px-6 pt-4",
 		children: [
 			El({
 				element: "div",
@@ -54,36 +54,36 @@ export function checkoutEl() {
 			}),
 			El({
 				element: "div",
-				className: "address-div mt-6 w-full bg-red-600 h-[60px] ",
+				className: "address-div mt-4 w-full bg-red-600 h-[60px] ",
 				id: "address-div",
 			}),
 			El({
 				element: "div",
-				className: "mt-6 w-full h-[1px]  bg-[#e1e1e1]  rounded-[50px]  ",
+				className: "mt-4 w-full h-[1px]  bg-[#e1e1e1]  rounded-[50px]  ",
 			}),
 			El({
 				element: "div",
-				className: "mt-6 font-semibold text-[22px]",
+				className: "mt-4 font-semibold text-[22px]",
 				innerText: "Order List",
 			}),
 			El({
 				element: "div",
-				className: "mt-6 overflow-scroll no-scroll h-[60px]",
+				className: "mt-4 overflow-scroll no-scroll h-[160px]",
 				id: "checkout-cards",
 			}),
 			El({
 				element: "div",
-				className: "mt-6 w-full h-[1px]  bg-[#e1e1e1]  rounded-[50px]  ",
+				className: "mt-4 w-full h-[1px]  bg-[#e1e1e1]  rounded-[50px]  ",
 			}),
 			El({
 				element: "div",
-				className: "mt-6 font-semibold text-[22px]",
+				className: "mt-4 font-semibold text-[22px]",
 				innerText: "Chose Shipping",
 			}),
 			El({
 				element: "div",
 				className:
-					"mt-6 w-full  rounded-2xl px-6 py-2 flex justify-between items-center shadow-[0_4px_20px_rgba(0,0,0,0.05)]",
+					"mt-4 w-full  rounded-2xl px-6 py-2 flex justify-between items-center shadow-[0_4px_20px_rgba(0,0,0,0.05)]",
 				children: [
 					El({
 						element: "div",
@@ -95,7 +95,7 @@ export function checkoutEl() {
 							}),
 							El({
 								element: "div",
-								innerText: "Chose Shipping Address",
+								innerText: "Chose Shipping Type",
 								className: "font-semibold text-[17px] ",
 							}),
 						],
@@ -109,16 +109,16 @@ export function checkoutEl() {
 			}),
 			El({
 				element: "div",
-				className: "mt-6 w-full h-[1px]  bg-[#e1e1e1]  rounded-[50px]  ",
+				className: "mt-4 w-full h-[1px]  bg-[#e1e1e1]  rounded-[50px]  ",
 			}),
 			El({
 				element: "div",
-				className: "mt-6 font-semibold text-[22px]",
+				className: "mt-4 font-semibold text-[22px]",
 				innerText: "Promo Code",
 			}),
 			El({
 				element: "div",
-				className: "flex items-center justify-between mt-6  ",
+				className: "flex items-center justify-between mt-4  ",
 				children: [
 					El({
 						element: "input",
@@ -139,7 +139,7 @@ export function checkoutEl() {
 			El({
 				element: "div",
 				className:
-					"mt-6 shadow-[0_4px_20px_rgba(0,0,0,0.05)] rounded-2xl flex flex-col justify-start items-start px-6 py-2 gap-2",
+					"mt-4 shadow-[0_4px_20px_rgba(0,0,0,0.05)] rounded-2xl flex flex-col justify-start items-start px-6 py-2 gap-2",
 				children: [
 					El({
 						element: "div",
@@ -216,6 +216,44 @@ export function checkoutEl() {
 								className: "w-3-5 h-3.5 mt-1",
 							}),
 						],
+					}),
+				],
+			}),
+			El({
+				element: "div",
+				className:
+					"fixed w-full h-screen hidden bg-gray-700 top-0 left-0 right-0 z-2 opacity-80 transition-opacity duration-300 ",
+			}),
+			El({
+				element: "div",
+				className:
+					"fixed h-[500px] w-[360px] hidden bg-white z-3 top-[213px] left-[32px] rounded-4xl flex flex-col justify-center items-center gap-4 px-15",
+				children: [
+					El({
+						element: "img",
+						src: "public/assets/images/payment-confirm.jpg",
+					}),
+					El({
+						element: "div",
+						innerText: "Order Successful!",
+						className: "text-[25px] font-semibold",
+					}),
+					El({
+						element: "div",
+						innerText: "You have successfuly made order",
+						className: " font-semibold text-[15px] text-gray-700",
+					}),
+					El({
+						element: "button",
+						innerText: "View Order",
+						className:
+							"w-full flex justify-center items-center  bg-black  text-white h-[60px] rounded-full text-[15px] font-bold",
+					}),
+					El({
+						element: "button",
+						innerText: "View E-receipt",
+						className:
+							"w-full flex justify-center items-center  bg-gray-200  text-black h-[60px] rounded-full text-[15px] font-bold",
 					}),
 				],
 			}),

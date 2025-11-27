@@ -9,6 +9,7 @@ import { loginPage } from "./pages/loginPage.js";
 import { productDetailPage } from "./pages/productDetailPage.js";
 import { sizeOfProduct } from "./components/productDetail/colorsAndSize.js";
 import { store } from "./utils/store.js";
+import { checkoutPage } from "./pages/checkoutPage.js";
 Swiper.use([Navigation, Pagination]);
 
 const app = document.getElementById("app");
@@ -20,6 +21,7 @@ router.addRoute("/onboarding", OnboardingPage);
 router.addRoute("/signup", signupPage);
 router.addRoute("/login", loginPage);
 router.addRoute("/product-detail", productDetailPage);
+router.addRoute("/checkout", checkoutPage);
 
 router.init(container);
 

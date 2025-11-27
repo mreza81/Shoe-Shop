@@ -54,7 +54,7 @@ export function checkoutEl() {
 			}),
 			El({
 				element: "div",
-				className: "address-div mt-4 w-full bg-red-600 h-[60px] ",
+				className: "address-div mt-4 w-full h-[60px] ",
 				id: "address-div",
 			}),
 			El({
@@ -68,7 +68,8 @@ export function checkoutEl() {
 			}),
 			El({
 				element: "div",
-				className: "mt-4 overflow-scroll no-scroll h-[160px]",
+				className:
+					"mt-4 overflow-scroll no-scrollbar h-[160px] flex flex-col gap-4 bg-white",
 				id: "checkout-cards",
 			}),
 			El({
@@ -154,6 +155,7 @@ export function checkoutEl() {
 								element: "div",
 								innerText: "$0.00",
 								className: "",
+                id:"Amount"
 							}),
 						],
 					}),

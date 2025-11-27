@@ -1,5 +1,5 @@
-import { checkoutEl } from "../components/checkout/checkoutEl";
+import { checkout } from "../components/checkout/checkout";
 
 export function checkoutPage() {
-	return checkoutEl();
+	return checkout();
 }

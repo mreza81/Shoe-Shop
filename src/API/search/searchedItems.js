@@ -11,7 +11,7 @@ export const searchedItems = debounce(async () => {
 	const notFoundDiv = document.getElementById("not-found-div");
 
 	const searchValue = search.value;
-	console.log(searchValue);
+
 	const response = await fetch(
 		`${BASE_URL}/sneaker?page=1&limit=100&search=${searchValue}`,
 		{
@@ -49,15 +49,12 @@ export const searchedItems = debounce(async () => {
 		});
 		container.appendChild(header);
 		if (items.length > 0) {
-			notFoundImg.classList.add("hidden");
-			notFoundDiv.classList.add("hidden");
 			localStorage.setItem("recent-search", JSON.stringify(recent));
 			const itemsDiv = El({
 				element: "div",
 				className:
 					"overflow-scroll no-scrollbar justify-between gap-4 grid grid-cols-2 h-[737px] mt-6",
 			});
-			console.log(items);
 
 			container.append(itemsDiv);
 			items.forEach((item) => {
@@ -143,5 +140,8 @@ export const searchedItems = debounce(async () => {
 	if (items.length == 0) {
 		notFoundImg.classList.remove("hidden");
 		notFoundDiv.classList.remove("hidden");
+	} else if (items.length >= 1) {
+		notFoundImg.classList.add("hidden");
+		notFoundDiv.classList.add("hidden");
 	}
 }, 2000);

@@ -1,3 +1,4 @@
+import { reccentlyItems } from "../../API/search/recentlyItems";
 import { searchedItems } from "../../API/search/searchedItems";
 import { El } from "../../utils/el";
 
@@ -53,10 +54,10 @@ export function recentSearch() {
 
 			const item = El({
 				element: "div",
-				className: "w-full mt-6 flex justify-between items-center",
+				className: "w-full mt-6 flex justify-between items-center ",
 				children: [
 					El({
-						element: "p",
+						element: "div",
 						innerText: element,
 						className:
 							"text-[18px] text-gray-500 text-inter-semibold cursor-pointer",
@@ -64,7 +65,7 @@ export function recentSearch() {
 							{
 								event: "click",
 								callback: (e) => {
-									searchedItems(e.target.innerText);
+									reccentlyItems(e.target.innerText);
 								},
 							},
 						],

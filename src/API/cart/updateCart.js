@@ -42,7 +42,7 @@ export async function increaseCartQuantity(item) {
 		}),
 	});
 	const data = await res.json();
-	console.log(item.quantity);
+
 	const updatedSpan = document.getElementById(`quantityCart-${item.id}`);
 	const updatedprice = document.getElementById(`tPrice-${item.id}`);
 	const totalPrice = document.getElementById("cart-totalPrice");

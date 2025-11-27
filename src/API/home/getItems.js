@@ -15,7 +15,6 @@ export async function getItems() {
 			},
 		});
 		const data = await response.json();
-		console.log(data);
 
 		const itemsArray = data.data;
 		if (!itemsArray) {

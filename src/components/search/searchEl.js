@@ -1,5 +1,7 @@
 import { El } from "../../utils/el";
 import { router } from "../../utils/router";
+import { handleSearch } from "./handleSearch";
+import { recentSearch } from "./recentSearch";
 
 export function searchEl() {
 	const search = El({
@@ -25,7 +27,7 @@ export function searchEl() {
 				placeholder: "Enter Item Name",
 				id: "input-searchPage",
 				className:
-					"input-searchPage w-full h-[55px] bg-[#FAFAFA] mt-[55px] px-[50px] rounded-2xl text-[14px] cursor-pointer border border-[2px] border-[#FAFAFA] focus:outline-none focus:border-black",
+					"input-searchPage w-full h-[55px] bg-[#FAFAFA] mt-[55px] px-[50px] rounded-2xl text-[16px] font-inter-semibold cursor-pointer border border-[2px] border-[#FAFAFA] focus:outline-none focus:border-black",
 				eventListener: [
 					{
 						event: "focus",
@@ -49,6 +51,10 @@ export function searchEl() {
 							img2.classList.add("opacity-30");
 						},
 					},
+					{
+						event: "input",
+						callback: handleSearch,
+					},
 				],
 			}),
 			El({
@@ -65,31 +71,46 @@ export function searchEl() {
 				eventListener: [
 					{
 						event: "click",
-						callback: () => {
-							const input = document.getElementById("input-searchPage");
-						},
+						callback: recentSearch,
 					},
 				],
 			}),
+			// El({
+			// 	element: "div",
+			// 	className: "flex items-center justify-between mt-7",
+			// 	children: [
+			// 		El({
+			// 			element: "p",
+			// 			innerText: "Recent",
+			// 			className: "font-inter-bold text-[21px]",
+			// 		}),
+			// 		El({
+			// 			element: "p",
+			// 			innerText: "Clear All",
+			// 			className: "font-inter-bold text-[17px]",
+			// 			eventListener: [
+			// 				{
+			// 					event: "click",
+			// 					callback: (e) => {
+			// 						localStorage.removeItem("recent-search");
+			// 						const container = document.getElementById(
+			// 							"resultSearch-container"
+			// 						);
+			// 						container.innerHTML = "";
+			// 					},
+			// 				},
+			// 			],
+			// 		}),
+			// 	],
+			// }),
+			// El({
+			// 	element: "div",
+			// 	className: "w-full h-[1px]  bg-[#e1e1e1] mt-6 ",
+			// }),
 			El({
 				element: "div",
-				className: "flex items-center justify-between mt-7",
-				children: [
-					El({
-						element: "p",
-						innerText: "Recent",
-						className: "font-inter-bold text-[21px]",
-					}),
-					El({
-						element: "p",
-						innerText: "Clear All",
-						className: "font-inter-bold text-[17px]",
-					}),
-				],
-			}),
-			El({
-				element: "div",
-				className: "w-full h-[1px]  bg-[#e1e1e1] mt-6 ",
+				className: "resultSearch-container  w-full",
+				id: "resultSearch-container",
 			}),
 		],
 	});

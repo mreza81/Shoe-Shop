@@ -59,7 +59,6 @@ export function HomeEl() {
 						event: "click",
 						callback: (e) => {
 							router.navigate("/search");
-							console.log("hello");
 						},
 					},
 				],

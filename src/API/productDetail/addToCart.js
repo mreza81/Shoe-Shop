@@ -20,7 +20,6 @@ export async function addToCard() {
 			}),
 		});
 		const data = await res.json();
-		console.log(data);
 
 		if (!res.ok) {
 			alert(data.message);

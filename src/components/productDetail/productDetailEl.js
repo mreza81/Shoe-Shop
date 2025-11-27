@@ -4,8 +4,6 @@ import { router } from "../../utils/router";
 import { store } from "../../utils/store";
 
 export function productDetailEl(data) {
-	console.log(data.pid);
-
 	if (store.getState(`counter${data.id}`) === undefined) {
 		store.setState(`counter${data.id}`, 1);
 	}

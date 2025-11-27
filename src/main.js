@@ -10,6 +10,7 @@ import "./style.css";
 import { router } from "./utils/router.js";
 import { searchPage } from "./pages/searchPage.js";
 import { checkoutPage } from "./pages/checkoutPage.js";
+import { shippingPage } from "./pages/shippingPage.js";
 Swiper.use([Navigation, Pagination]);
 
 const app = document.getElementById("app");
@@ -24,7 +25,7 @@ router.addRoute("/product-detail", productDetailPage);
 router.addRoute("/checkout", checkoutPage);
 router.addRoute("/cart", cartPage);
 router.addRoute("/search", searchPage);
-
+router.addRoute("/checkout/shipping:type", shippingPage);
 router.init(container);
 
 // localStorage.removeItem("token");

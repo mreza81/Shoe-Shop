@@ -93,7 +93,7 @@ export async function showCheckoutCart() {
 								El({
 									element: "div",
 									className:
-										"font-semibold text-[18px] rounded-[50%] w-9 h-9 flex justify-center items-center bg-gray-200",
+										"font-semibold text-[16px] rounded-[50%] w-9 h-9 flex justify-center items-center bg-gray-200",
 									innerText: item.quantity,
 								}),
 							],

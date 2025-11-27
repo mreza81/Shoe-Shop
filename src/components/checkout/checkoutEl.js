@@ -5,6 +5,7 @@ export function checkoutEl() {
 	return El({
 		element: "div",
 		className: "checkout-container px-6 pt-4",
+		id: "checkout-container",
 		children: [
 			El({
 				element: "div",
@@ -105,6 +106,14 @@ export function checkoutEl() {
 						element: "img",
 						src: "public/assets/images/arrow-next.png",
 						className: "h-5 w-5",
+						eventListener: [
+							{
+								event: "click",
+								callback: () => {
+									router.navigate("/checkout/shipping:choose");
+								},
+							},
+						],
 					}),
 				],
 			}),
@@ -155,7 +164,7 @@ export function checkoutEl() {
 								element: "div",
 								innerText: "$0.00",
 								className: "",
-                id:"Amount"
+								id: "Amount",
 							}),
 						],
 					}),
@@ -205,7 +214,15 @@ export function checkoutEl() {
 					El({
 						element: "button",
 						className:
-							"w-full flex justify-center items-center gap-3 bg-black  text-white h-[45px] rounded-full",
+							"w-full flex justify-center items-center gap-3 bg-black  text-white h-[50px] rounded-full cursor-pointer",
+						eventListener: [
+							{
+								event: "click",
+								callback: () => {
+									router.navigate("/checkout/shipping");
+								},
+							},
+						],
 						children: [
 							El({
 								element: "div",

@@ -8,6 +8,12 @@ import { productDetailPage } from "./pages/productDetailPage.js";
 import { signupPage } from "./pages/signUpPage.js";
 import "./style.css";
 import { router } from "./utils/router.js";
+import { signupPage } from "./pages/signUpPage.js";
+import { loginPage } from "./pages/loginPage.js";
+import { productDetailPage } from "./pages/productDetailPage.js";
+import { sizeOfProduct } from "./components/productDetail/colorsAndSize.js";
+import { store } from "./utils/store.js";
+import { checkoutPage } from "./pages/checkoutPage.js";
 Swiper.use([Navigation, Pagination]);
 
 const app = document.getElementById("app");
@@ -19,7 +25,7 @@ router.addRoute("/onboarding", OnboardingPage);
 router.addRoute("/signup", signupPage);
 router.addRoute("/login", loginPage);
 router.addRoute("/product-detail", productDetailPage);
-router.addRoute("/cart", cartPage);
+router.addRoute("/checkout", checkoutPage);
 
 router.init(container);
 

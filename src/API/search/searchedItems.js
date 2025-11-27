@@ -53,7 +53,8 @@ export const searchedItems = debounce(async () => {
 			const itemsDiv = El({
 				element: "div",
 				className:
-					"overflow-scroll no-scrollbar justify-between gap-4 grid grid-cols-2 h-[737px] mt-6",
+					"searched-div overflow-scroll no-scrollbar justify-between gap-4 grid grid-cols-2 h-[737px] mt-6",
+				id: "searched-div",
 			});
 
 			container.append(itemsDiv);
@@ -143,5 +144,46 @@ export const searchedItems = debounce(async () => {
 	} else if (items.length >= 1) {
 		notFoundImg.classList.add("hidden");
 		notFoundDiv.classList.add("hidden");
+		//-------------------------------------hide scrollbar-y-----------------------------------------------
+		const box = document.querySelector("#searched-div");
+		let isDown = false;
+
+		let startY = 0;
+		let scrollTop = 0;
+
+		// Mouse Events
+		box.addEventListener("mousedown", (e) => {
+			isDown = true;
+			startY = e.pageY - box.offsetTop;
+			scrollTop = box.scrollTop;
+		});
+
+		box.addEventListener("mouseleave", () => {
+			isDown = false;
+		});
+
+		box.addEventListener("mouseup", () => {
+			isDown = false;
+		});
+
+		box.addEventListener("mousemove", (e) => {
+			if (!isDown) return;
+			e.preventDefault();
+			const y = e.pageY - box.offsetTop;
+			const walk = (y - startY) * 1.7;
+			box.scrollTop = scrollTop - walk;
+		});
+
+		// Touch Events (موبایل و تاچ پد)
+		box.addEventListener("touchstart", (e) => {
+			startY = e.touches[0].clientY;
+			scrollTop = box.scrollTop;
+		});
+
+		box.addEventListener("touchmove", (e) => {
+			const y = e.touches[0].clientY;
+			const walk = (y - startY) * 1.7;
+			box.scrollTop = scrollTop - walk;
+		});
 	}
 }, 2000);

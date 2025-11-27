@@ -1,12 +1,18 @@
 import { reccentlyItems } from "../../API/search/recentlyItems";
-import { searchedItems } from "../../API/search/searchedItems";
 import { El } from "../../utils/el";
 
 export function recentSearch() {
 	const allRecent = JSON.parse(localStorage.getItem("recent-search"));
 	const recent = allRecent?.reverse().slice(0, 12);
 	const container = document.getElementById("resultSearch-container");
+	const notFoundImg = document.getElementById("not-found-img");
+	const notFoundDiv = document.getElementById("not-found-div");
+
 	container.innerHTML = "";
+
+	notFoundImg.classList.add("hidden");
+	notFoundDiv.classList.add("hidden");
+
 	const header = El({
 		element: "div",
 		className: "flex flex-col",

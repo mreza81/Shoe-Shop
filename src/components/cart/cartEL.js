@@ -35,6 +35,14 @@ export function cardEl() {
 						element: "img",
 						src: "public/assets/images/search-svgrepo-com.svg",
 						className: "cursor-pointer w-8",
+						eventListener: [
+							{
+								event: "click",
+								callback: () => {
+									router.navigate("/search");
+								},
+							},
+						],
 					}),
 				],
 			}),

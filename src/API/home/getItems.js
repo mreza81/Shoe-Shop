@@ -15,6 +15,7 @@ export async function getItems() {
 			},
 		});
 		const data = await response.json();
+
 		const itemsArray = data.data;
 		if (!itemsArray) {
 			alert("your time is ended!!please login again");

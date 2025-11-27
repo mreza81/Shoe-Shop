@@ -1,3 +1,4 @@
+import { searchedItems } from "../../API/search/searchedItems";
 import { El } from "../../utils/el";
 
 export function recentSearch() {
@@ -44,9 +45,9 @@ export function recentSearch() {
 			}),
 		],
 	});
+	container.append(header);
 
-	if (allRecent && allRecent != null) {
-		container.append(header);
+	if (allRecent && allRecent.length > 0) {
 		recent.forEach((element) => {
 			console.log(element);
 
@@ -57,7 +58,16 @@ export function recentSearch() {
 					El({
 						element: "p",
 						innerText: element,
-						className: "text-[18px] text-gray-500 text-inter-semibold",
+						className:
+							"text-[18px] text-gray-500 text-inter-semibold cursor-pointer",
+						eventListener: [
+							{
+								event: "click",
+								callback: (e) => {
+									searchedItems(e.target.innerText);
+								},
+							},
+						],
 					}),
 
 					El({

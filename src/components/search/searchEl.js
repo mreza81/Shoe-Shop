@@ -1,12 +1,12 @@
+import { searchedItems } from "../../API/search/searchedItems";
 import { El } from "../../utils/el";
 import { router } from "../../utils/router";
-import { handleSearch } from "./handleSearch";
 import { recentSearch } from "./recentSearch";
 
 export function searchEl() {
 	const search = El({
 		element: "div",
-		className: "search container px-6",
+		className: "search container px-6 h-[926px] ",
 		children: [
 			El({
 				element: "img",
@@ -37,7 +37,7 @@ export function searchEl() {
 
 							img.classList.add("opacity-100");
 
-							img2.classList.add("opacity-100");
+							// img2.classList.add("opacity-100");
 						},
 					},
 					{
@@ -47,13 +47,13 @@ export function searchEl() {
 							const img2 = document.getElementById("filter-icon");
 							img.classList.remove("opacity-100");
 							img.classList.add("opacity-60");
-							img2.classList.remove("opacity-100");
-							img2.classList.add("opacity-30");
+							// img2.classList.remove("opacity-100");
+							// img2.classList.add("opacity-30");
 						},
 					},
 					{
 						event: "input",
-						callback: handleSearch,
+						callback: searchedItems,
 					},
 				],
 			}),
@@ -65,7 +65,7 @@ export function searchEl() {
 			}),
 			El({
 				element: "img",
-				className: "absolute right-9 top-[72px] w-5 h-5 opacity-30",
+				className: "absolute right-9 top-[72px] w-5 h-5 opacity-100",
 				src: "public/assets/images/filter-svgrepo-com.svg",
 				id: "filter-icon",
 				eventListener: [
@@ -103,14 +103,36 @@ export function searchEl() {
 			// 		}),
 			// 	],
 			// }),
-			// El({
-			// 	element: "div",
-			// 	className: "w-full h-[1px]  bg-[#e1e1e1] mt-6 ",
-			// }),
+
 			El({
 				element: "div",
 				className: "resultSearch-container  w-full",
 				id: "resultSearch-container",
+			}),
+			El({
+				element: "img",
+				src: "public/assets/images/Doc.png",
+				className: "mt-20 hidden",
+				id: "not-found-img",
+			}),
+			El({
+				element: "div",
+				className: "flex flex-col justify-center items-center hidden",
+				id: "not-found-div",
+
+				children: [
+					El({
+						element: "div",
+						innerText: "Not Found",
+						className: "font-inter-bold text-[25px]",
+					}),
+					El({
+						element: "div",
+						innerText:
+							"Sorry, the keyword you entered cannot be found, please check again or search with another keyword.",
+						className: "font-inter-semibold text-[20px]",
+					}),
+				],
 			}),
 		],
 	});

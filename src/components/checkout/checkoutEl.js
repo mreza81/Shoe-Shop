@@ -55,37 +55,89 @@ export function checkoutEl() {
 			}),
 			El({
 				element: "div",
-				className: "address-div mt-4 w-full h-[60px] ",
-				id: "address-div",
+				className: `
+            w-full bg-white rounded-2xl shadow-sm 
+            p-5 flex items-center justify-between
+        `,
+				children: [
+					// Left (icon + texts)
+					El({
+						element: "div",
+						className: "flex items-center gap-4",
+						children: [
+							// Icon Circle
+							El({
+								element: "div",
+								className: `
+                            w-12 h-12 rounded-full bg-gray-100 
+                            flex items-center justify-center
+                        `,
+								children: [
+									El({
+										element: "img",
+										src: "/public/assets/images/location-svgrepo-com.svg", // مسیر آیکون را خودت بزار
+										className: "w-9 h-9",
+									}),
+								],
+							}),
+
+							// Texts
+							El({
+								element: "div",
+								className: "flex flex-col gap-1",
+								children: [
+									El({
+										element: "span",
+										className: "font-semibold text-[17px]",
+										innerText: "Home",
+									}),
+									El({
+										element: "span",
+										className: "text-gray-500 text-[14px]",
+										innerText: "61480 Sunbrok Park PC 5679", // آدرس خالی
+									}),
+								],
+							}),
+						],
+					}),
+
+					// Right Edit Icon
+					El({
+						element: "img",
+						src: "/public/assets/images/edit.png", // مسیر آیکون ادیت را بزار
+						className: "w-5 h-5 opacity-100 cursor-pointer",
+					}),
+				],
+			}),
+
+			El({
+				element: "div",
+				className: "mt-3 w-full h-[1px]  bg-[#e1e1e1]  rounded-[50px]  ",
 			}),
 			El({
 				element: "div",
-				className: "mt-4 w-full h-[1px]  bg-[#e1e1e1]  rounded-[50px]  ",
-			}),
-			El({
-				element: "div",
-				className: "mt-4 font-semibold text-[22px]",
+				className: "mt-3 font-semibold text-[22px]",
 				innerText: "Order List",
 			}),
 			El({
 				element: "div",
 				className:
-					"mt-4 overflow-scroll no-scrollbar h-[160px] flex flex-col gap-4 bg-white",
+					"mt-3 overflow-scroll no-scrollbar h-[160px] flex flex-col gap-4 bg-white",
 				id: "checkout-cards",
 			}),
 			El({
 				element: "div",
-				className: "mt-4 w-full h-[1px]  bg-[#e1e1e1]  rounded-[50px]  ",
+				className: "mt-3 w-full h-[1px]  bg-[#e1e1e1]  rounded-[50px]  ",
 			}),
 			El({
 				element: "div",
-				className: "mt-4 font-semibold text-[22px]",
+				className: "mt-3 font-semibold text-[22px]",
 				innerText: "Chose Shipping",
 			}),
 			El({
 				element: "div",
 				className:
-					"mt-4 w-full  rounded-2xl px-6 py-2 flex justify-between items-center shadow-[0_4px_20px_rgba(0,0,0,0.05)]",
+					"mt-3 w-full  rounded-2xl px-6 py-4 flex justify-between items-center shadow-[0_4px_20px_rgba(0,0,0,0.05)]",
 				children: [
 					El({
 						element: "div",
@@ -105,7 +157,7 @@ export function checkoutEl() {
 					El({
 						element: "img",
 						src: "public/assets/images/arrow-next.png",
-						className: "h-5 w-5",
+						className: "h-5 w-5 cursor-pointer",
 						eventListener: [
 							{
 								event: "click",
@@ -218,9 +270,7 @@ export function checkoutEl() {
 						eventListener: [
 							{
 								event: "click",
-								callback: () => {
-									router.navigate("/checkout/shipping");
-								},
+								callback: () => {},
 							},
 						],
 						children: [
@@ -240,11 +290,13 @@ export function checkoutEl() {
 			}),
 			El({
 				element: "div",
+				id: "checkout-ovelay",
 				className:
-					"fixed w-full h-screen hidden bg-gray-700 top-0 left-0 right-0 z-2 opacity-80 transition-opacity duration-300 ",
+					"fixed w-full h-screen hidden bg-gray-700 top-0 left-0 right-0 z-2 opacity-0 transition-opacity duration-300 ",
 			}),
 			El({
 				element: "div",
+				id: "checkout-modal",
 				className:
 					"fixed h-[500px] w-[360px] hidden bg-white z-3 top-[213px] left-[32px] rounded-4xl flex flex-col justify-center items-center gap-4 px-15",
 				children: [

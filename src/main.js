@@ -9,6 +9,7 @@ import { signupPage } from "./pages/signUpPage.js";
 import "./style.css";
 import { router } from "./utils/router.js";
 import { searchPage } from "./pages/searchPage.js";
+import { checkoutPage } from "./pages/checkoutPage.js";
 Swiper.use([Navigation, Pagination]);
 
 const app = document.getElementById("app");

@@ -93,6 +93,14 @@ export function cardEl() {
 										element: "p",
 										innerText: "Checkout",
 										className: "text-white font-inter-semibold text-[19px] ",
+										eventListener: [
+											{
+												event: "click",
+												callback: () => {
+													router.navigate("/checkout");
+												},
+											},
+										],
 									}),
 									El({
 										element: "img",

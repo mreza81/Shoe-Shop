@@ -12,7 +12,7 @@ export function HomeEl() {
 		children: [
 			El({
 				element: "div",
-				className: "home-header h-20 flex justify-between items-center",
+				className: "home-header h-20 flex justify-between items-center ",
 				children: [
 					El({
 						element: "div",

@@ -270,7 +270,9 @@ export function checkoutEl() {
 						eventListener: [
 							{
 								event: "click",
-								callback: () => {},
+								callback: () => {
+									router.navigate("/checkout/shipping:payment");
+								},
 							},
 						],
 						children: [

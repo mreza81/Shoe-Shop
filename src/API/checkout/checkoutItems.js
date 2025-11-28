@@ -1,11 +1,13 @@
 import { El } from "../../utils/el";
 import { router } from "../../utils/router";
+import { store } from "../../utils/store";
 import { BASE_URL } from "../BASE_URL/BASE_URL";
 
 export async function showCheckoutCart() {
 	const token = localStorage.getItem("token");
 	const itemsDiv = document.getElementById("checkout-cards");
 	const Amount = document.getElementById("Amount");
+	const Total = document.getElementById("total");
 
 	const res = await fetch(`${BASE_URL}/cart`, {
 		headers: {
@@ -105,8 +107,10 @@ export async function showCheckoutCart() {
 		const sum = data.reduce((sum, item) => {
 			return sum + Number(item.quantity) * Number(item.sneaker.price);
 		}, 0);
-		Amount.innerText = `$${sum},00`;
+		Amount.innerText = `$${sum}.00`;
 
+		Total.innerText = `$${sum + (store.getState("shipping") || 10)}.00`;
+		store.setState("sumAndShip", sum + (store.getState("shipping") || 10));
 		itemsDiv.append(cards);
 	});
 }

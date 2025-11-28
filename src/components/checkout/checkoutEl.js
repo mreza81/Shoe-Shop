@@ -1,5 +1,6 @@
 import { El } from "../../utils/el";
 import { router } from "../../utils/router";
+import { store } from "../../utils/store";
 
 export function checkoutEl() {
 	return El({
@@ -60,12 +61,10 @@ export function checkoutEl() {
             p-5 flex items-center justify-between
         `,
 				children: [
-					// Left (icon + texts)
 					El({
 						element: "div",
 						className: "flex items-center gap-4",
 						children: [
-							// Icon Circle
 							El({
 								element: "div",
 								className: `
@@ -75,7 +74,7 @@ export function checkoutEl() {
 								children: [
 									El({
 										element: "img",
-										src: "/public/assets/images/location-svgrepo-com.svg", // مسیر آیکون را خودت بزار
+										src: "/public/assets/images/location-svgrepo-com.svg",
 										className: "w-9 h-9",
 									}),
 								],
@@ -94,17 +93,16 @@ export function checkoutEl() {
 									El({
 										element: "span",
 										className: "text-gray-500 text-[14px]",
-										innerText: "61480 Sunbrok Park PC 5679", // آدرس خالی
+										innerText: "61480 Sunbrok Park PC 5679",
 									}),
 								],
 							}),
 						],
 					}),
 
-					// Right Edit Icon
 					El({
 						element: "img",
-						src: "/public/assets/images/edit.png", // مسیر آیکون ادیت را بزار
+						src: "/public/assets/images/edit.png",
 						className: "w-5 h-5 opacity-100 cursor-pointer",
 						eventListener: [
 							{
@@ -239,7 +237,7 @@ export function checkoutEl() {
 							}),
 							El({
 								element: "div",
-								innerText: "$0.00",
+								innerText: `$${store.getState("shipping") || 10}.00`,
 								className: "",
 							}),
 						],
@@ -259,8 +257,9 @@ export function checkoutEl() {
 							}),
 							El({
 								element: "div",
-								innerText: "$0.00",
+								innerText: "$0'00",
 								className: "",
+								id: "total",
 							}),
 						],
 					}),
@@ -298,46 +297,6 @@ export function checkoutEl() {
 					}),
 				],
 			}),
-			// El({
-			// 	element: "div",
-			// 	id: "checkout-ovelay",
-			// 	className:
-			// 		"fixed w-full h-screen hidden bg-gray-700 top-0 left-0 right-0 z-2 opacity-0 transition-opacity duration-300 ",
-			// }),
-			// El({
-			// 	element: "div",
-			// 	id: "checkout-modal",
-			// 	className:
-			// 		"fixed h-[500px] w-[360px] hidden bg-white z-3 top-[213px] left-[32px] rounded-4xl flex flex-col justify-center items-center gap-4 px-15",
-			// 	children: [
-			// 		El({
-			// 			element: "img",
-			// 			src: "public/assets/images/payment-confirm.jpg",
-			// 		}),
-			// 		El({
-			// 			element: "div",
-			// 			innerText: "Order Successful!",
-			// 			className: "text-[25px] font-semibold",
-			// 		}),
-			// 		El({
-			// 			element: "div",
-			// 			innerText: "You have successfuly made order",
-			// 			className: " font-semibold text-[15px] text-gray-700",
-			// 		}),
-			// 		El({
-			// 			element: "button",
-			// 			innerText: "View Order",
-			// 			className:
-			// 				"w-full flex justify-center items-center  bg-black  text-white h-[60px] rounded-full text-[15px] font-bold",
-			// 		}),
-			// 		El({
-			// 			element: "button",
-			// 			innerText: "View E-receipt",
-			// 			className:
-			// 				"w-full flex justify-center items-center  bg-gray-200  text-black h-[60px] rounded-full text-[15px] font-bold",
-			// 		}),
-			// 	],
-			// }),
 		],
 	});
 }

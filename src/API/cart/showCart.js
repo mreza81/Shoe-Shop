@@ -1,6 +1,7 @@
 import { openModal } from "../../components/cart/handleMdal";
 import { El } from "../../utils/el";
 import { router } from "../../utils/router";
+import { store } from "../../utils/store";
 import { BASE_URL } from "../BASE_URL/BASE_URL";
 import { decreaseCartQuantity, increaseCartQuantity } from "./updateCart";
 

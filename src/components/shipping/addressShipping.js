@@ -1,5 +1,6 @@
 import { El } from "../../utils/el";
 import { router } from "../../utils/router";
+import { selectItems } from "./shippingFuncs";
 
 export function addressShipping() {
 	return El({
@@ -53,7 +54,7 @@ export function addressShipping() {
 								children: [
 									El({
 										element: "img",
-										src: "/public/assets/images/location-svgrepo-com.svg", // مسیر آیکون را خودت بزار
+										src: "/public/assets/images/location-svgrepo-com.svg",
 										className: "w-9 h-9",
 									}),
 								],
@@ -72,7 +73,7 @@ export function addressShipping() {
 									El({
 										element: "span",
 										className: "text-gray-500 text-[14px]",
-										innerText: "61480 Sunbrok Park PC 5679", // آدرس خالی
+										innerText: "61480 Sunbrok Park PC 5679",
 									}),
 								],
 							}),
@@ -84,10 +85,18 @@ export function addressShipping() {
 						element: "div",
 						className:
 							" w-5 h-5 border border-black rounded-full  flex justify-center items-center ",
+						eventListener: [
+							{
+								event: "click",
+								callback: (e) => {
+									selectItems(e);
+								},
+							},
+						],
 						children: [
 							El({
 								element: "div",
-								className: "select bg-black w-3 h-3 rounded-[50%] hidden ",
+								className: "select bg-black w-3 h-3 rounded-[50%] ",
 							}),
 						],
 					}),
@@ -115,7 +124,7 @@ export function addressShipping() {
 								children: [
 									El({
 										element: "img",
-										src: "/public/assets/images/location-svgrepo-com.svg", // مسیر آیکون را خودت بزار
+										src: "/public/assets/images/location-svgrepo-com.svg",
 										className: "w-9 h-9",
 									}),
 								],
@@ -134,7 +143,7 @@ export function addressShipping() {
 									El({
 										element: "span",
 										className: "text-gray-500 text-[14px]",
-										innerText: "61480 Sunbrok Park PC 5679", // آدرس خالی
+										innerText: "61480 Sunbrok Park PC 5679", //
 									}),
 								],
 							}),
@@ -146,6 +155,15 @@ export function addressShipping() {
 						element: "div",
 						className:
 							" w-5 h-5 border border-black rounded-full  flex justify-center items-center ",
+						eventListener: [
+							{
+								event: "click",
+								callback: (e) => {
+									selectItems(e);
+								},
+							},
+						],
+
 						children: [
 							El({
 								element: "div",
@@ -177,7 +195,7 @@ export function addressShipping() {
 								children: [
 									El({
 										element: "img",
-										src: "/public/assets/images/location-svgrepo-com.svg", // مسیر آیکون را خودت بزار
+										src: "/public/assets/images/location-svgrepo-com.svg",
 										className: "w-9 h-9",
 									}),
 								],
@@ -196,7 +214,7 @@ export function addressShipping() {
 									El({
 										element: "span",
 										className: "text-gray-500 text-[14px]",
-										innerText: "61480 Sunbrok Park PC 5679", // آدرس خالی
+										innerText: "61480 Sunbrok Park PC 5679",
 									}),
 								],
 							}),
@@ -208,6 +226,14 @@ export function addressShipping() {
 						element: "div",
 						className:
 							" w-5 h-5 border border-black rounded-full  flex justify-center items-center ",
+						eventListener: [
+							{
+								event: "click",
+								callback: (e) => {
+									selectItems(e);
+								},
+							},
+						],
 						children: [
 							El({
 								element: "div",
@@ -270,6 +296,14 @@ export function addressShipping() {
 						element: "div",
 						className:
 							" w-5 h-5 border border-black rounded-full  flex justify-center items-center ",
+						eventListener: [
+							{
+								event: "click",
+								callback: (e) => {
+									selectItems(e);
+								},
+							},
+						],
 						children: [
 							El({
 								element: "div",

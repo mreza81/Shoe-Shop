@@ -1,6 +1,7 @@
 import { El } from "../../utils/el";
 import { router } from "../../utils/router";
 import { closeModal, openModal } from "../checkout/functionsCheckout";
+import { selectItems } from "./shippingFuncs";
 
 export function paymentShipping() {
 	return El({
@@ -81,7 +82,22 @@ export function paymentShipping() {
 							}),
 							El({
 								element: "div",
-								className: "w-6 h-6 rounded-[50%] border-2 border-black",
+								className:
+									"w-6 h-6 rounded-[50%] border-2 border-black flex items-center justify-center",
+								eventListener: [
+									{
+										event: "click",
+										callback: (e) => {
+											selectItems(e);
+										},
+									},
+								],
+								children: [
+									El({
+										element: "div",
+										className: "select bg-black w-3 h-3 rounded-[50%] ",
+									}),
+								],
 							}),
 						],
 					}),
@@ -120,7 +136,22 @@ export function paymentShipping() {
 							}),
 							El({
 								element: "div",
-								className: "w-6 h-6 rounded-[50%] border-2 border-black",
+								className:
+									"w-6 h-6 rounded-[50%] border-2 border-black flex items-center justify-center ",
+								eventListener: [
+									{
+										event: "click",
+										callback: (e) => {
+											selectItems(e);
+										},
+									},
+								],
+								children: [
+									El({
+										element: "div",
+										className: "select bg-black w-3 h-3 rounded-[50%] hidden ",
+									}),
+								],
 							}),
 						],
 					}),
@@ -159,7 +190,22 @@ export function paymentShipping() {
 							}),
 							El({
 								element: "div",
-								className: "w-6 h-6 rounded-[50%] border-2 border-black",
+								className:
+									"w-6 h-6 rounded-[50%] border-2 border-black flex items-center justify-center",
+								eventListener: [
+									{
+										event: "click",
+										callback: (e) => {
+											selectItems(e);
+										},
+									},
+								],
+								children: [
+									El({
+										element: "div",
+										className: "select bg-black w-3 h-3 rounded-[50%] hidden ",
+									}),
+								],
 							}),
 						],
 					}),
@@ -198,7 +244,22 @@ export function paymentShipping() {
 							}),
 							El({
 								element: "div",
-								className: "w-6 h-6 rounded-[50%] border-2 border-black",
+								className:
+									"w-6 h-6 rounded-[50%] border-2 border-black flex items-center justify-center",
+								eventListener: [
+									{
+										event: "click",
+										callback: (e) => {
+											selectItems(e);
+										},
+									},
+								],
+								children: [
+									El({
+										element: "div",
+										className: "select bg-black w-3 h-3 rounded-[50%] hidden ",
+									}),
+								],
 							}),
 						],
 					}),
@@ -237,7 +298,22 @@ export function paymentShipping() {
 							}),
 							El({
 								element: "div",
-								className: "w-6 h-6 rounded-[50%] border-2 border-black",
+								className:
+									"w-6 h-6 rounded-[50%] border-2 border-black flex items-center justify-center",
+								eventListener: [
+									{
+										event: "click",
+										callback: (e) => {
+											selectItems(e);
+										},
+									},
+								],
+								children: [
+									El({
+										element: "div",
+										className: "select bg-black w-3 h-3 rounded-[50%] hidden ",
+									}),
+								],
 							}),
 						],
 					}),

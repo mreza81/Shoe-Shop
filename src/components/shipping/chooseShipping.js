@@ -1,7 +1,7 @@
 import { El } from "../../utils/el";
 import { router } from "../../utils/router";
 import { store } from "../../utils/store";
-import { selectItems } from "./selectItems";
+import { selectItems } from "./shippingFuncs";
 
 export function chooseShipping() {
 	return El({
@@ -51,7 +51,7 @@ export function chooseShipping() {
 									El({
 										element: "img",
 										src: "/assets/images/shipping-economy.svg",
-										className: "w-15 h-16", // فقط اندازه، بدون دایره
+										className: "w-15 h-16",
 									}),
 
 									El({
@@ -86,20 +86,21 @@ export function chooseShipping() {
 										element: "div",
 										className:
 											"w-5 h-5 border border-black rounded-full flex justify-center items-center",
+										eventListener: [
+											{
+												event: "click",
+												callback: (e) => {
+													store.setState("shipping", 10);
+
+													selectItems(e);
+												},
+											},
+										],
 										children: [
 											El({
 												element: "div",
-												className: "select bg-black w-3 h-3 rounded-[50%] ",
-												eventListener: [
-													{
-														event: "click",
-														callback: (e) => {
-															store.setState("shipping", 10);
-
-															selectItems(e);
-														},
-													},
-												],
+												className:
+													"select bg-black w-4 h-4 rounded-[50%] hidden",
 											}),
 										],
 									}),
@@ -119,7 +120,7 @@ export function chooseShipping() {
 									El({
 										element: "img",
 										src: "/assets/images/shipping-regular.svg",
-										className: "w-16 h-16", // فقط اندازه، بدون دایره
+										className: "w-16 h-16",
 									}),
 
 									El({
@@ -154,10 +155,21 @@ export function chooseShipping() {
 										element: "div",
 										className:
 											"w-5 h-5 border border-black rounded-full flex justify-center items-center",
+										eventListener: [
+											{
+												event: "click",
+												callback: (e) => {
+													store.setState("shipping", 15);
+
+													selectItems(e);
+												},
+											},
+										],
 										children: [
 											El({
 												element: "div",
-												className: "select bg-black w-3 h-3 rounded-[50%]  ",
+												className:
+													"select bg-black w-4 h-4 rounded-[50%] hidden ",
 											}),
 										],
 									}),
@@ -212,11 +224,21 @@ export function chooseShipping() {
 										element: "div",
 										className:
 											"w-5 h-5 border border-black rounded-full flex justify-center items-center",
+										eventListener: [
+											{
+												event: "click",
+												callback: (e) => {
+													store.setState("shipping", 20);
+
+													selectItems(e);
+												},
+											},
+										],
 										children: [
 											El({
 												element: "div",
 												className:
-													"select bg-black w-3 h-3 rounded-[50%] hidden ",
+													"select bg-black w-4 h-4 rounded-[50%] hidden ",
 											}),
 										],
 									}),
@@ -271,10 +293,21 @@ export function chooseShipping() {
 										element: "div",
 										className:
 											"w-5 h-5 border border-black rounded-full flex justify-center items-center",
+										eventListener: [
+											{
+												event: "click",
+												callback: (e) => {
+													store.setState("shipping", 30);
+
+													selectItems(e);
+												},
+											},
+										],
 										children: [
 											El({
 												element: "div",
-												className: "select bg-black w-3 h-3 rounded-[50%]  ",
+												className:
+													"select bg-black w-4 h-4 rounded-[50%] hidden ",
 											}),
 										],
 									}),

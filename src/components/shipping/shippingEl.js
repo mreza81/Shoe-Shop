@@ -1,3 +1,4 @@
+import { addressShipping } from "./addressShipping";
 import { chooseShipping } from "./chooseShipping";
 import { paymentShipping } from "./paymentShipping";
 
@@ -8,5 +9,7 @@ export function ShippingEl(param) {
 		return chooseShipping();
 	} else if (type == ":payment") {
 		return paymentShipping();
+	} else if (type == ":address") {
+		return addressShipping();
 	}
 }

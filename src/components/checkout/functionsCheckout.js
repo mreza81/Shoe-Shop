@@ -1,5 +1,6 @@
 export function openModal() {
 	const modal = document.getElementById("checkout-modal");
+
 	const overlay = document.getElementById("checkout-ovelay");
 	modal.classList.remove("hidden");
 	overlay.classList.remove("hidden");

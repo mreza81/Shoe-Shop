@@ -1,10 +1,13 @@
 import { El } from "../../utils/el";
 import { router } from "../../utils/router";
+import { store } from "../../utils/store";
+import { selectItems } from "./selectItems";
 
 export function chooseShipping() {
 	return El({
 		element: "div",
 		className: "px-6",
+
 		children: [
 			El({
 				element: "div",
@@ -26,7 +29,7 @@ export function chooseShipping() {
 					}),
 					El({
 						element: "div",
-						innerText: "Chose Shipping",
+						innerText: "Choose Shipping",
 						className: "font-semibold text-[25px]",
 					}),
 				],
@@ -39,6 +42,7 @@ export function chooseShipping() {
 						element: "div",
 						className:
 							"w-full bg-white rounded-2xl shadow-lg p-4 flex  items-center justify-between mt-7",
+
 						children: [
 							El({
 								element: "div",
@@ -80,7 +84,24 @@ export function chooseShipping() {
 									}),
 									El({
 										element: "div",
-										className: "w-5 h-5 border border-black rounded-full",
+										className:
+											"w-5 h-5 border border-black rounded-full flex justify-center items-center",
+										children: [
+											El({
+												element: "div",
+												className: "select bg-black w-3 h-3 rounded-[50%] ",
+												eventListener: [
+													{
+														event: "click",
+														callback: (e) => {
+															store.setState("shipping", 10);
+
+															selectItems(e);
+														},
+													},
+												],
+											}),
+										],
 									}),
 								],
 							}),
@@ -131,7 +152,14 @@ export function chooseShipping() {
 									}),
 									El({
 										element: "div",
-										className: "w-5 h-5 border border-black rounded-full",
+										className:
+											"w-5 h-5 border border-black rounded-full flex justify-center items-center",
+										children: [
+											El({
+												element: "div",
+												className: "select bg-black w-3 h-3 rounded-[50%]  ",
+											}),
+										],
 									}),
 								],
 							}),
@@ -149,7 +177,7 @@ export function chooseShipping() {
 									El({
 										element: "img",
 										src: "/assets/images/shipping-cargo.svg",
-										className: "w-16 h-16", // فقط اندازه، بدون دایره
+										className: "w-16 h-16",
 									}),
 
 									El({
@@ -182,7 +210,15 @@ export function chooseShipping() {
 									}),
 									El({
 										element: "div",
-										className: "w-5 h-5 border border-black rounded-full",
+										className:
+											"w-5 h-5 border border-black rounded-full flex justify-center items-center",
+										children: [
+											El({
+												element: "div",
+												className:
+													"select bg-black w-3 h-3 rounded-[50%] hidden ",
+											}),
+										],
 									}),
 								],
 							}),
@@ -200,7 +236,7 @@ export function chooseShipping() {
 									El({
 										element: "img",
 										src: "/assets/images/shipping-express.svg",
-										className: "w-16 h-16", // فقط اندازه، بدون دایره
+										className: "w-16 h-16",
 									}),
 
 									El({
@@ -233,7 +269,14 @@ export function chooseShipping() {
 									}),
 									El({
 										element: "div",
-										className: "w-5 h-5 border border-black rounded-full",
+										className:
+											"w-5 h-5 border border-black rounded-full flex justify-center items-center",
+										children: [
+											El({
+												element: "div",
+												className: "select bg-black w-3 h-3 rounded-[50%]  ",
+											}),
+										],
 									}),
 								],
 							}),

@@ -106,6 +106,14 @@ export function checkoutEl() {
 						element: "img",
 						src: "/public/assets/images/edit.png", // مسیر آیکون ادیت را بزار
 						className: "w-5 h-5 opacity-100 cursor-pointer",
+						eventListener: [
+							{
+								event: "click",
+								callback: () => {
+									router.navigate("/checkout/shipping:address");
+								},
+							},
+						],
 					}),
 				],
 			}),
@@ -290,46 +298,46 @@ export function checkoutEl() {
 					}),
 				],
 			}),
-			El({
-				element: "div",
-				id: "checkout-ovelay",
-				className:
-					"fixed w-full h-screen hidden bg-gray-700 top-0 left-0 right-0 z-2 opacity-0 transition-opacity duration-300 ",
-			}),
-			El({
-				element: "div",
-				id: "checkout-modal",
-				className:
-					"fixed h-[500px] w-[360px] hidden bg-white z-3 top-[213px] left-[32px] rounded-4xl flex flex-col justify-center items-center gap-4 px-15",
-				children: [
-					El({
-						element: "img",
-						src: "public/assets/images/payment-confirm.jpg",
-					}),
-					El({
-						element: "div",
-						innerText: "Order Successful!",
-						className: "text-[25px] font-semibold",
-					}),
-					El({
-						element: "div",
-						innerText: "You have successfuly made order",
-						className: " font-semibold text-[15px] text-gray-700",
-					}),
-					El({
-						element: "button",
-						innerText: "View Order",
-						className:
-							"w-full flex justify-center items-center  bg-black  text-white h-[60px] rounded-full text-[15px] font-bold",
-					}),
-					El({
-						element: "button",
-						innerText: "View E-receipt",
-						className:
-							"w-full flex justify-center items-center  bg-gray-200  text-black h-[60px] rounded-full text-[15px] font-bold",
-					}),
-				],
-			}),
+			// El({
+			// 	element: "div",
+			// 	id: "checkout-ovelay",
+			// 	className:
+			// 		"fixed w-full h-screen hidden bg-gray-700 top-0 left-0 right-0 z-2 opacity-0 transition-opacity duration-300 ",
+			// }),
+			// El({
+			// 	element: "div",
+			// 	id: "checkout-modal",
+			// 	className:
+			// 		"fixed h-[500px] w-[360px] hidden bg-white z-3 top-[213px] left-[32px] rounded-4xl flex flex-col justify-center items-center gap-4 px-15",
+			// 	children: [
+			// 		El({
+			// 			element: "img",
+			// 			src: "public/assets/images/payment-confirm.jpg",
+			// 		}),
+			// 		El({
+			// 			element: "div",
+			// 			innerText: "Order Successful!",
+			// 			className: "text-[25px] font-semibold",
+			// 		}),
+			// 		El({
+			// 			element: "div",
+			// 			innerText: "You have successfuly made order",
+			// 			className: " font-semibold text-[15px] text-gray-700",
+			// 		}),
+			// 		El({
+			// 			element: "button",
+			// 			innerText: "View Order",
+			// 			className:
+			// 				"w-full flex justify-center items-center  bg-black  text-white h-[60px] rounded-full text-[15px] font-bold",
+			// 		}),
+			// 		El({
+			// 			element: "button",
+			// 			innerText: "View E-receipt",
+			// 			className:
+			// 				"w-full flex justify-center items-center  bg-gray-200  text-black h-[60px] rounded-full text-[15px] font-bold",
+			// 		}),
+			// 	],
+			// }),
 		],
 	});
 }

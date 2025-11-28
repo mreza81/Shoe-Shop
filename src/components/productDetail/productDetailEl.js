@@ -214,7 +214,7 @@ export function productDetailEl(data) {
 								innerText: `$ ${data.price}.00`,
 								id: `total-box-${data.id}`,
 								className:
-									"total-price-box text-[#101010] text-[25px] font-semibold font-propis",
+									"total-price-box text-[#101010] text-[25px] font-semibold font-propis min-w-35 max-w-35",
 							}),
 						],
 					}),

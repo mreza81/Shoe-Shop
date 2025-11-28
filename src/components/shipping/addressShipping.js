@@ -1,5 +1,6 @@
 import { El } from "../../utils/el";
 import { router } from "../../utils/router";
+import { store } from "../../utils/store";
 import { selectItems } from "./shippingFuncs";
 
 export function addressShipping() {
@@ -89,6 +90,7 @@ export function addressShipping() {
 							{
 								event: "click",
 								callback: (e) => {
+									store.setState("address", "Home");
 									selectItems(e);
 								},
 							},
@@ -159,6 +161,7 @@ export function addressShipping() {
 							{
 								event: "click",
 								callback: (e) => {
+									store.setState("address", "Apartemant");
 									selectItems(e);
 								},
 							},
@@ -230,6 +233,7 @@ export function addressShipping() {
 							{
 								event: "click",
 								callback: (e) => {
+									store.setState("address", "Office");
 									selectItems(e);
 								},
 							},
@@ -300,6 +304,8 @@ export function addressShipping() {
 							{
 								event: "click",
 								callback: (e) => {
+									store.setState("address", "Parrentshouse");
+
 									selectItems(e);
 								},
 							},

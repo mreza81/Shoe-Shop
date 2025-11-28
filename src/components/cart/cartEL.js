@@ -74,7 +74,8 @@ export function cardEl() {
 									El({
 										element: "p",
 										innerText: "$0.00",
-										className: " text-black text-[25px] font-inter-bold",
+										className:
+											" text-black text-[25px] font-inter-bold min-w-40 max-w-40 truncate",
 										id: "cart-totalPrice",
 									}),
 								],
@@ -84,19 +85,18 @@ export function cardEl() {
 								className:
 									"w-[260px] bg-black text-white h-[65px] rounded-full flex justify-center items-center gap-4 cursor-pointer shadow-xl",
 								eventListener: [
-											{
-												event: "click",
-												callback: () => {
-													router.navigate("/checkout");
-												},
-											},
-										],
+									{
+										event: "click",
+										callback: () => {
+											router.navigate("/checkout");
+										},
+									},
+								],
 								children: [
 									El({
 										element: "p",
 										innerText: "Checkout",
 										className: "text-white font-inter-semibold text-[19px] ",
-										
 									}),
 									El({
 										element: "img",

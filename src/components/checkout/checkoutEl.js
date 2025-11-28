@@ -1,6 +1,7 @@
 import { El } from "../../utils/el";
 import { router } from "../../utils/router";
 import { store } from "../../utils/store";
+import { calculateOff } from "./functionsCheckout";
 
 export function checkoutEl() {
 	return El({
@@ -88,7 +89,7 @@ export function checkoutEl() {
 									El({
 										element: "span",
 										className: "font-semibold text-[17px]",
-										innerText: "Home",
+										innerText: `${store.getState("address") || "Home"}`,
 									}),
 									El({
 										element: "span",
@@ -193,7 +194,7 @@ export function checkoutEl() {
 						type: "text",
 						placeholder: "Enter Promo Code",
 						className:
-							"w-[320px] bg-[#F7F7F9] text-gray-500 placeholder-gray-400 rounded-2xl py-2 px-6 text-lg outline-none shadow-[0_4px_20px_rgba(0,0,0,0.05)]",
+							"w-[320px] bg-[#F7F7F9] text-gray-800 placeholder-gray-400 rounded-2xl py-2 px-6 text-lg outline-none shadow-[0_4px_20px_rgba(0,0,0,0.05)]",
 						id: "promo-input",
 					}),
 					El({
@@ -201,13 +202,19 @@ export function checkoutEl() {
 						src: "public/assets/images/add-plus-svgrepo-com.svg",
 						className: "w-9 h-9 ",
 						id: "add-promo-btn",
+						eventListener: [
+							{
+								event: "click",
+								callback: calculateOff,
+							},
+						],
 					}),
 				],
 			}),
 			El({
 				element: "div",
 				className:
-					"mt-4 shadow-[0_4px_20px_rgba(0,0,0,0.05)] rounded-2xl flex flex-col justify-start items-start px-6 py-2 gap-2",
+					"mt-4 shadow-[0_4px_20px_rgba(0,0,0,0.05)] rounded-2xl flex flex-col justify-start items-start px-6 py-2 gap-2 relative",
 				children: [
 					El({
 						element: "div",
@@ -278,6 +285,8 @@ export function checkoutEl() {
 							{
 								event: "click",
 								callback: () => {
+									// const display = document.getElementById("discount-display");
+
 									router.navigate("/checkout/shipping:payment");
 								},
 							},
@@ -295,6 +304,26 @@ export function checkoutEl() {
 							}),
 						],
 					}),
+				],
+			}),
+			El({
+				element: "div",
+				className:
+					"absolute bg-black  text-white bottom-72 right-6 w-48 py-2 px-4 rounded-full hidden",
+				id: "discount-display",
+			}),
+			El({
+				element: "img",
+				src: "/public/assets/images/cross-svgrepo-com.svg",
+				className: "absolute w-6 h-6 bottom-[294px] right-8 z-999",
+				eventListener: [
+					{
+						event: "click",
+						callback: () => {
+							const display = document.getElementById("discount-display");
+							display.classList.add("hidden");
+						},
+					},
 				],
 			}),
 		],

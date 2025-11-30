@@ -30,3 +30,4 @@ router.init(container);
 
 // localStorage.removeItem("token");
 // localStorage.removeItem("onboarding");
+// localStorage.clear();

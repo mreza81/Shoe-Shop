@@ -130,7 +130,7 @@ export function searchEl() {
 						element: "div",
 						innerText:
 							"Sorry, the keyword you entered cannot be found, please check again or search with another keyword.",
-						className: "font-inter-semibold text-[20px]",
+						className: "font-inter-semibold text-[20px] text-center",
 					}),
 				],
 			}),

@@ -2,8 +2,6 @@ import { El } from "../../utils/el";
 import { router } from "../../utils/router";
 import { BASE_URL } from "../BASE_URL/BASE_URL";
 
-
-
 export async function getBrand() {
 	const token = localStorage.getItem("token");
 	const itemsDiv = document.getElementById("items-div");
@@ -41,19 +39,19 @@ export async function getBrand() {
 						itemsDiv.innerHTML = "";
 
 						try {
-							const res = await fetch(`${BASE_URL}/sneaker?page=1&limit=100`, {
-								headers: {
-									"Content-Type": "application/json; charset=UTF-8",
-									Authorization: `Bearer ${token}`,
-								},
-							});
+							const res = await fetch(
+								`${BASE_URL}/sneaker?page=1&limit=100&brands=${item}`,
+								{
+									headers: {
+										"Content-Type": "application/json; charset=UTF-8",
+										Authorization: `Bearer ${token}`,
+									},
+								}
+							);
 							const data = await res.json();
-							const allItems = data.data;
+							const pr = data.data;
 
-							const filtredItems = allItems.filter((element) => {
-								return element.brand === item;
-							});
-							filtredItems.forEach((item) => {
+							pr.forEach((item) => {
 								const element = El({
 									element: "div",
 									className:

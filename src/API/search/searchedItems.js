@@ -29,6 +29,9 @@ export const searchedItems = debounce(async () => {
 		const recent = JSON.parse(localStorage.getItem("recent-search")) || [];
 
 		recent.push(searchValue);
+		const unique = [...new Set(recent)];
+		localStorage.setItem("recent-search", JSON.stringify(unique));
+
 		const header = El({
 			element: "div",
 			className: "flex justify-between items-center w-full mt-6",
@@ -49,7 +52,6 @@ export const searchedItems = debounce(async () => {
 		});
 		container.appendChild(header);
 		if (items.length > 0) {
-			localStorage.setItem("recent-search", JSON.stringify(recent));
 			const itemsDiv = El({
 				element: "div",
 				className:

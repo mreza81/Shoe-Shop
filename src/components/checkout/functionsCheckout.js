@@ -34,22 +34,38 @@ export function calculateOff() {
 	let discount = 0;
 	const totalDiv = document.getElementById("total");
 	const display = document.getElementById("discount-display");
+	const discountDiv = document.getElementById("discount-div");
+	const promoDiv = document.getElementById("promo");
+	const deletPromo = document.getElementById("delete-promo");
+
 	totalDiv.innerHTML = "";
 
 	const input = document.getElementById("promo-input");
 	if (input.value == "gold") {
 		discount = 20 / 100;
-		display.classList.remove("hidden");
+		discountDiv.classList.remove("hidden");
 		display.innerHTML = "Discount 20% Off";
 	} else if (input.value == "silver") {
 		discount = 15 / 100;
-		display.classList.remove("hidden");
+		discountDiv.classList.remove("hidden");
 		display.innerHTML = "Discount 15% off";
 	} else if (input.value == "boronze") {
 		discount = 10 / 100;
-		display.classList.remove("hidden");
+		discountDiv.classList.remove("hidden");
 		display.innerHTML = "Discount 10% off";
 	}
-	const totalPrice = sumAndShip - sumAndShip * discount;
+
+	const promo = Math.round(sumAndShip * discount);
+	const totalPrice = Math.round(sumAndShip - promo);
+	promoDiv.innerHTML = `-$${promo}.00`;
 	totalDiv.innerHTML = `$${totalPrice}.00`;
+
+	deletPromo.addEventListener("click", (e) => {
+		discount = 0;
+		discountDiv.classList.add("hidden");
+		const promo = Math.round(sumAndShip * discount);
+		const totalPrice = Math.round(sumAndShip - promo);
+		promoDiv.innerHTML = `-$${promo}.00`;
+		totalDiv.innerHTML = `$${totalPrice}.00`;
+	});
 }

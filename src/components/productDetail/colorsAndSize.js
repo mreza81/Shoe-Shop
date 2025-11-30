@@ -27,7 +27,7 @@ export async function sizeOfProduct() {
 								item.classList.remove("text-white");
 							});
 							const btn = e.target;
-							console.log(btn);
+
 							btn.classList.remove("bg-white");
 							btn.classList.add("bg-black");
 							btn.classList.remove("text-zinc-600");

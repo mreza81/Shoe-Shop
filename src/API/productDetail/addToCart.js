@@ -24,7 +24,7 @@ export async function addToCard() {
 		if (!res.ok) {
 			alert(data.message);
 		}
-		router.navigate("/cart");
+		// router.navigate("/cart");
 	} catch {
 		throw new Error("Eror to add card");
 	}

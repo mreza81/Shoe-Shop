@@ -2,6 +2,12 @@ import { addToCard } from "../../API/productDetail/addToCart";
 import { El } from "../../utils/el";
 import { router } from "../../utils/router";
 import { store } from "../../utils/store";
+import {
+	checkColorSelected,
+	checkSizeSelected,
+	hiddenSucessDiv,
+	sucsesAddCart,
+} from "./functions";
 
 export function productDetailEl(data) {
 	if (store.getState(`counter${data.id}`) === undefined) {
@@ -221,16 +227,26 @@ export function productDetailEl(data) {
 					El({
 						element: "button",
 						eventListener: [
-							{
-								event: "click",
-								callback: addToCard,
-							},
+							// {
+							// 	event: "click",
+							// 	callback: checkSizeSelected,
+							// },
 							{
 								event: "click",
 								callback: () => {
 									store.setState(`counter${data.id}`, 1);
+									checkSizeSelected();
+									checkColorSelected();
+									if (checkColorSelected() && checkSizeSelected()) {
+										addToCard();
+										sucsesAddCart();
+									}
 								},
 							},
+							// {
+							// 	event: "click",
+							// 	callback: sucsesAddCart,
+							// },
 						],
 						className:
 							"w-[260px] bg-black text-white h-[60px] rounded-full flex justify-center items-center gap-2 cursor-pointer shadow-2xl",
@@ -248,6 +264,61 @@ export function productDetailEl(data) {
 						],
 					}),
 				],
+			}),
+			El({
+				element: "div",
+				className:
+					"flex flex-col gap-2 bg-green-300 absolute top-5 right-6 z-2 w-70 opacity-90 px-3 py-3 rounded-xl hidden",
+				id: "sucsess-div",
+				children: [
+					El({
+						element: "div",
+						className: "",
+						innerText: "Item Added To Your Cart!Do You Want See Your Cart?",
+					}),
+					El({
+						element: "div",
+						className: "flex justify-center items-center gap-6",
+						children: [
+							El({
+								element: "div",
+								innerText: "No",
+								className: "cursor-pointer",
+								eventListener: [
+									{
+										event: "click",
+										callback: hiddenSucessDiv,
+									},
+								],
+							}),
+							El({
+								element: "div",
+								innerText: "Yes",
+								className: "cursor-pointer",
+								eventListener: [
+									{
+										event: "click",
+										callback: () => {
+											router.navigate("/cart");
+										},
+									},
+								],
+							}),
+						],
+					}),
+				],
+			}),
+			El({
+				element: "div",
+				className: "absolute text-red-500 bottom-[167px] left-6 hidden",
+				innerText: "please select a size",
+				id: "select-size",
+			}),
+			El({
+				element: "div",
+				className: "absolute text-red-500 bottom-[167px] right-6 hidden",
+				innerText: "please select a color",
+				id: "select-color",
 			}),
 		],
 	});

@@ -63,7 +63,7 @@ export async function showCart() {
 									El({
 										element: "p",
 										className:
-											"max-w-[170px] font-inter-bold whitespace-nowrap truncate ",
+											"max-w-[170px] font-inter-bold whitespace-nowrap truncate cursor-pointer",
 										innerText: item.sneaker.name,
 									}),
 									El({

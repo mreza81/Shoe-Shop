@@ -3,6 +3,7 @@ import { BASE_URL } from "./BASE_URL/BASE_URL";
 export async function signupAPI() {
 	const userSignup = document.querySelector("#userName-Signup");
 	const passSignup = document.querySelector("#password-signup");
+	const validation = document.getElementById("signup-validation");
 	// const AuthenticationDiv = document.getElementById("AuthenticationDiv");
 	const userName = userSignup.value.trim();
 	const password = passSignup.value.trim();
@@ -17,10 +18,12 @@ export async function signupAPI() {
 		console.log(data);
 
 		if (response.ok) {
-			alert("sign up sucess full ! please login btn");
+			validation.innerHTML = "sign up sucess full ! please login btn";
+			validation.classList.add("text-green");
 			router.navigate("/login");
 		} else {
-			alert(data.message);
+			validation.innerHTML = `${data.message}`;
+			validation.classList.add("text-red-500");
 		}
 	} catch {
 		throw new Error(Error);

@@ -173,6 +173,13 @@ export function LoginEl() {
 					}),
 				],
 			}),
+			El({
+				element: "div",
+				className:
+					"absolute bottom-[250px] w-[380px] text-center left-6 right-6 ",
+				innerText: "",
+				id: "login-validation",
+			}),
 		],
 	});
 }

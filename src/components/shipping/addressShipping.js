@@ -1,7 +1,12 @@
 import { El } from "../../utils/el";
 import { router } from "../../utils/router";
-import { store } from "../../utils/store";
-import { selectItems } from "./shippingFuncs";
+import {
+	addAdress,
+	addressRender,
+	closeModal,
+	openModal,
+	validateAddressForm,
+} from "./shippingFuncs";
 
 export function addressShipping() {
 	return El({
@@ -35,287 +40,10 @@ export function addressShipping() {
 			}),
 			El({
 				element: "div",
-				className: `
-                  w-full bg-white rounded-2xl shadow-sm 
-                  p-5 flex items-center justify-between mt-8
-              `,
+				id: "addressDiv",
 				children: [
-					// Left (icon + texts)
-					El({
-						element: "div",
-						className: "flex items-center gap-4",
-						children: [
-							// Icon Circle
-							El({
-								element: "div",
-								className: `
-                                  w-12 h-12 rounded-full bg-gray-100 
-                                  flex items-center justify-center
-                              `,
-								children: [
-									El({
-										element: "img",
-										src: "/public/assets/images/location-svgrepo-com.svg",
-										className: "w-9 h-9",
-									}),
-								],
-							}),
-
-							// Texts
-							El({
-								element: "div",
-								className: "flex flex-col gap-1",
-								children: [
-									El({
-										element: "span",
-										className: "font-semibold text-[17px]",
-										innerText: "Home",
-									}),
-									El({
-										element: "span",
-										className: "text-gray-500 text-[14px]",
-										innerText: "61480 Sunbrok Park PC 5679",
-									}),
-								],
-							}),
-						],
-					}),
-
-					// Right Edit Icon
-					El({
-						element: "div",
-						className:
-							" w-5 h-5 border border-black rounded-full  flex justify-center items-center ",
-						eventListener: [
-							{
-								event: "click",
-								callback: (e) => {
-									store.setState("address", "Home");
-									selectItems(e);
-								},
-							},
-						],
-						children: [
-							El({
-								element: "div",
-								className: "select bg-black w-3 h-3 rounded-[50%] ",
-							}),
-						],
-					}),
-				],
-			}),
-			El({
-				element: "div",
-				className: `
-                  w-full bg-white rounded-2xl shadow-sm 
-                  p-5 flex items-center justify-between mt-8
-              `,
-				children: [
-					// Left (icon + texts)
-					El({
-						element: "div",
-						className: "flex items-center gap-4",
-						children: [
-							// Icon Circle
-							El({
-								element: "div",
-								className: `
-                                  w-12 h-12 rounded-full bg-gray-100 
-                                  flex items-center justify-center
-                              `,
-								children: [
-									El({
-										element: "img",
-										src: "/public/assets/images/location-svgrepo-com.svg",
-										className: "w-9 h-9",
-									}),
-								],
-							}),
-
-							// Texts
-							El({
-								element: "div",
-								className: "flex flex-col gap-1",
-								children: [
-									El({
-										element: "span",
-										className: "font-semibold text-[17px]",
-										innerText: "Apartemant",
-									}),
-									El({
-										element: "span",
-										className: "text-gray-500 text-[14px]",
-										innerText: "61480 Sunbrok Park PC 5679", //
-									}),
-								],
-							}),
-						],
-					}),
-
-					// Right Edit Icon
-					El({
-						element: "div",
-						className:
-							" w-5 h-5 border border-black rounded-full  flex justify-center items-center ",
-						eventListener: [
-							{
-								event: "click",
-								callback: (e) => {
-									store.setState("address", "Apartemant");
-									selectItems(e);
-								},
-							},
-						],
-
-						children: [
-							El({
-								element: "div",
-								className: "select bg-black w-3 h-3 rounded-[50%] hidden ",
-							}),
-						],
-					}),
-				],
-			}),
-			El({
-				element: "div",
-				className: `
-                  w-full bg-white rounded-2xl shadow-sm 
-                  p-5 flex items-center justify-between mt-8
-              `,
-				children: [
-					// Left (icon + texts)
-					El({
-						element: "div",
-						className: "flex items-center gap-4",
-						children: [
-							// Icon Circle
-							El({
-								element: "div",
-								className: `
-                                  w-12 h-12 rounded-full bg-gray-100 
-                                  flex items-center justify-center
-                              `,
-								children: [
-									El({
-										element: "img",
-										src: "/public/assets/images/location-svgrepo-com.svg",
-										className: "w-9 h-9",
-									}),
-								],
-							}),
-
-							// Texts
-							El({
-								element: "div",
-								className: "flex flex-col gap-1",
-								children: [
-									El({
-										element: "span",
-										className: "font-semibold text-[17px]",
-										innerText: "office",
-									}),
-									El({
-										element: "span",
-										className: "text-gray-500 text-[14px]",
-										innerText: "61480 Sunbrok Park PC 5679",
-									}),
-								],
-							}),
-						],
-					}),
-
-					// Right Edit Icon
-					El({
-						element: "div",
-						className:
-							" w-5 h-5 border border-black rounded-full  flex justify-center items-center ",
-						eventListener: [
-							{
-								event: "click",
-								callback: (e) => {
-									store.setState("address", "Office");
-									selectItems(e);
-								},
-							},
-						],
-						children: [
-							El({
-								element: "div",
-								className: "select bg-black w-3 h-3 rounded-[50%] hidden ",
-							}),
-						],
-					}),
-				],
-			}),
-			El({
-				element: "div",
-				className: `
-                  w-full bg-white rounded-2xl shadow-sm 
-                  p-5 flex items-center justify-between mt-8
-              `,
-				children: [
-					// Left (icon + texts)
-					El({
-						element: "div",
-						className: "flex items-center gap-4",
-						children: [
-							// Icon Circle
-							El({
-								element: "div",
-								className: `
-                                  w-12 h-12 rounded-full bg-gray-100 
-                                  flex items-center justify-center
-                              `,
-								children: [
-									El({
-										element: "img",
-										src: "/public/assets/images/location-svgrepo-com.svg", // مسیر آیکون را خودت بزار
-										className: "w-9 h-9",
-									}),
-								],
-							}),
-
-							// Texts
-							El({
-								element: "div",
-								className: "flex flex-col gap-1",
-								children: [
-									El({
-										element: "span",
-										className: "font-semibold text-[17px]",
-										innerText: "Parent House",
-									}),
-									El({
-										element: "span",
-										className: "text-gray-500 text-[14px]",
-										innerText: "61480 Sunbrok Park PC 5679", // آدرس خالی
-									}),
-								],
-							}),
-						],
-					}),
-
-					// Right Edit Icon
-					El({
-						element: "div",
-						className:
-							" w-5 h-5 border border-black rounded-full  flex justify-center items-center ",
-						eventListener: [
-							{
-								event: "click",
-								callback: (e) => {
-									store.setState("address", "Parrentshouse");
-
-									selectItems(e);
-								},
-							},
-						],
-						children: [
-							El({
-								element: "div",
-								className: "select bg-black w-3 h-3 rounded-[50%] hidden ",
-							}),
-						],
+					setTimeout(() => {
+						addressRender();
 					}),
 				],
 			}),
@@ -323,6 +51,74 @@ export function addressShipping() {
 				element: "button",
 				innerText: "Add New Address",
 				className: "w-full bg-gray-300 mt-8 py-4 rounded-full font-semibold",
+				eventListener: [
+					{
+						event: "click",
+						callback: openModal,
+					},
+				],
+			}),
+			El({
+				element: "div",
+				id: "address-ovelay",
+				className:
+					"fixed w-full h-screen hidden  bg-gray-700 top-0 left-0 right-0 z-2 opacity-0 transition-opacity duration-300 ",
+				eventListener: [
+					{
+						event: "click",
+						callback: closeModal,
+					},
+				],
+			}),
+			El({
+				element: "div",
+				id: "address-modal",
+				className:
+					"fixed h-[500px] w-[360px] hidden bg-white z-3 top-[213px] left-[32px] rounded-4xl flex flex-col justify-center items-center gap-4 px-10",
+				children: [
+					El({
+						element: "img",
+						src: "/public/assets/images/location-svgrepo-com.svg",
+						classList: "h-15 w-15",
+					}),
+					El({
+						element: "div",
+						innerText: "Add New Address",
+						className: "text-[25px] font-semibold",
+					}),
+
+					El({
+						element: "input",
+						placeholder: "title",
+						id: "address-title",
+						className:
+							"w-full flex justify-center items-center px-4 text-black bg-gray-200 placeholder:text-gray-400 h-[40px] rounded-lg text-[15px] font-bold",
+						eventListener: [{ event: "input", callback: validateAddressForm }],
+					}),
+					El({
+						element: "textarea",
+						placeholder: "detail",
+						id: "address-detail",
+						className:
+							"w-full flex justify-center items-center  bg-gray-200  text-black h-[150px] text-[15px]  py-4 px-4 rounded-lg placeholder:text-gray-400",
+						eventListener: [{ event: "input", callback: validateAddressForm }],
+					}),
+					El({
+						element: "button",
+						innerText: "Add",
+						id: "add-adress-Btn",
+						className:
+							"w-full flex justify-center items-center  bg-gray-200  text-black h-[60px] rounded-full text-[15px] font-bold opacity-50 disabled:true cursor-pointer",
+						eventListener: [
+							{
+								event: "click",
+								callback: () => {
+									addAdress(), addressRender();
+								},
+							},
+						],
+					}),
+				],
 			}),
 		],
 	});

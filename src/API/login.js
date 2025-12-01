@@ -5,6 +5,8 @@ export async function loginAPI() {
 	const userLogin = document.querySelector("#user-login");
 	const passLogin = document.querySelector("#password-login");
 	const loginBtn = document.getElementById("signin-btn");
+	const validation = document.getElementById("login-validation");
+
 	const userName = userLogin.value;
 	const password = passLogin.value;
 	try {
@@ -23,7 +25,8 @@ export async function loginAPI() {
 				router.navigate("/");
 			}, 700);
 		} else {
-			alert(data.message);
+			validation.innerHTML = `${data.message}`;
+			validation.classList.add("text-red-500");
 		}
 	} catch {
 		throw new Error(Error);

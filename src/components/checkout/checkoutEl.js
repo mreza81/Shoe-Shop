@@ -6,7 +6,8 @@ import { calculateOff } from "./functionsCheckout";
 export function checkoutEl() {
 	return El({
 		element: "div",
-		className: "checkout-container px-6 pt-4",
+		className:
+			"checkout-container px-6 pt-4 h-[926px] overflow-scroll no-scrollbar",
 		id: "checkout-container",
 		children: [
 			El({
@@ -89,12 +90,12 @@ export function checkoutEl() {
 									El({
 										element: "span",
 										className: "font-semibold text-[17px]",
-										innerText: `${store.getState("address") || "Home"}`,
+										innerText: `${store.getState("addressTitle") || "select"}`,
 									}),
 									El({
 										element: "span",
 										className: "text-gray-500 text-[14px]",
-										innerText: "61480 Sunbrok Park PC 5679",
+										innerText: `${store.getState("addressDetail") || "select"}`,
 									}),
 								],
 							}),
@@ -144,7 +145,7 @@ export function checkoutEl() {
 				element: "div",
 				className:
 					"mt-6 w-full  rounded-2xl px-6 py-6 flex justify-between items-center shadow-[0_4px_20px_rgba(0,0,0,0.05)]",
-					id:"choose-shipping-div",
+				id: "choose-shipping-div",
 				children: [
 					El({
 						element: "div",

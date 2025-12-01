@@ -7,7 +7,7 @@ export function checkout() {
 		showCheckoutCart();
 
 		//-------------------------------------hide scrollbar-y-----------------------------------------------
-		const box = document.querySelector("#checkout-cards");
+		const box = document.querySelector("#checkout-container");
 		let isDown = false;
 		let startY = 0;
 		let scrollTop = 0;

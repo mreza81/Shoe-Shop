@@ -24,7 +24,11 @@ export async function addToCard() {
 		if (!res.ok) {
 			alert(data.message);
 		}
-		// router.navigate("/cart");
+		const carts = JSON.parse(localStorage.getItem("allCarts")) || [];
+		if (!carts.includes(data.id)) {
+			carts.push(data.id);
+			localStorage.setItem("allCarts", JSON.stringify(carts));
+		}
 	} catch {
 		throw new Error("Eror to add card");
 	}

@@ -1,3 +1,4 @@
+import { deletAllCarts } from "../../API/checkout/deletAllCarts";
 import { El } from "../../utils/el";
 import { router } from "../../utils/router";
 import { closeModal, openModal } from "../checkout/functionsCheckout";
@@ -333,6 +334,7 @@ export function paymentShipping() {
 							{
 								event: "click",
 								callback: () => {
+									deletAllCarts();
 									openModal();
 								},
 							},

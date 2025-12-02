@@ -2,6 +2,7 @@ import { deleteCard } from "../../API/cart/deletecard";
 import { showCart } from "../../API/cart/showCart";
 import { El } from "../../utils/el";
 import { router } from "../../utils/router";
+import { closeModalHome, openModalHome } from "../home/functions";
 import { closeModal } from "./handleMdal";
 
 export function cardEl() {
@@ -196,8 +197,15 @@ export function cardEl() {
 							}),
 							El({
 								element: "div",
-								className: "flex flex-col justify-center items-center gap-1",
+								className:
+									"flex flex-col justify-center items-center gap-1 cursor-pointer",
 								id: "home-footer-profile",
+								eventListener: [
+									{
+										event: "click",
+										callback: openModalHome,
+									},
+								],
 								children: [
 									El({
 										element: "img",
@@ -293,6 +301,67 @@ export function cardEl() {
 											},
 										],
 									}),
+								],
+							}),
+						],
+					}),
+				],
+			}),
+			El({
+				element: "div",
+				className:
+					"profile-overlay bg-gray-700  w-full h-[926px] fixed top-0 left-0 z-3 hidden opacity-0  transition-opacity duration-300",
+				eventListener: [
+					{
+						event: "click",
+						callback: closeModalHome,
+					},
+				],
+			}),
+			El({
+				element: "div",
+				className:
+					"profile-modal h-[190px] w-full  bg-white hidden rounded-t-[32px]  border-gray-200 shadow-xl  opacity-0 shadow-black/10 fixed z-4 bottom-0   transition-opacity duration-300 -translate-x -translate-y",
+				children: [
+					El({
+						element: "div",
+						innerText: "If you sure to delete account?",
+						className: "font-inter-bold text-center text-[23px] mt-6",
+					}),
+					El({
+						element: "div",
+						className: "w-full h-[1px]  bg-[#e1e1e1] mt-6 ",
+					}),
+					El({
+						element: "div",
+						className: "flex justify-between items-center mt-6 mx-6",
+						children: [
+							El({
+								element: "button",
+								innerText: "Cancle",
+								className:
+									"w-[178px] h-[60px] bg-[#e1e1e1] rounded-full font-inter-bold text-[16px] cursor-pointer",
+								eventListener: [
+									{
+										event: "click",
+										callback: closeModalHome,
+									},
+								],
+							}),
+							El({
+								element: "button",
+								innerText: "Yes",
+								className:
+									"w-[178px] h-[60px] bg-[#000000] text-white rounded-full font-inter-bold text-[16px] cursor-pointer",
+								eventListener: [
+									{
+										event: "click",
+										callback: (e) => {
+											logout();
+											closeModalHome();
+											router.navigate("/signup");
+										},
+									},
 								],
 							}),
 						],

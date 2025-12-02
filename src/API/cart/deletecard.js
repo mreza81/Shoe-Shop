@@ -13,8 +13,4 @@ export async function deleteCard() {
 			Authorization: `Bearer ${token}`,
 		},
 	});
-	
-	if (res.ok) {
-		sessionStorage.removeItem("cart-id");
-	}
 }

@@ -15,7 +15,6 @@ export async function signupAPI() {
 			headers: { "Content-Type": "application/json; charset=UTF-8" },
 		});
 		const data = await response.json();
-		console.log(data);
 
 		if (response.ok) {
 			validation.innerHTML = "sign up sucess full ! please login btn";

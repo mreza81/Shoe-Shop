@@ -7,8 +7,6 @@ The project uses **TailwindCSS** for styling and **pure Vanilla JavaScript** for
 
 ## 🖼️ Project Screenshots (Gallery)
 
-> Upload all your images in one place (GitHub, ImgBB, Cloudinary)  
-> Then put the image URLs inside the parentheses below.
 
 <p align="center">
   <img src="public/assets/images/Screenshot (168).png" width="250">
@@ -19,7 +17,6 @@ The project uses **TailwindCSS** for styling and **pure Vanilla JavaScript** for
   <img src="public/assets/images/Screenshot (175).png" width="250">
 </p>
 
-(You can add or remove images easily — just duplicate `<img src="">`.)
 
 ---
 

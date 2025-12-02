@@ -120,14 +120,14 @@ export function HomeEl() {
 				element: "div",
 				id: "items-div",
 				className:
-					"mt-6 grid grid-cols-2 gap-x-4 gap-y-6 h-[470px] overflow-y-scroll no-scrollbar",
+					"mt-6 grid grid-cols-2 gap-x-4 gap-y-6 h-[500px] overflow-y-scroll no-scrollbar",
 				children: [],
 			}),
-			El({
-				element: "p",
-				className: "ml-[91px] text-3.5 font-semibold tracking-[-4%]  mt-[54px]",
-				innerText: "Infinity Scrolling for pagination",
-			}),
+			// El({
+			// 	element: "p",
+			// 	className: "ml-[91px] text-3.5 font-semibold tracking-[-4%]  mt-[54px]",
+			// 	innerText: "Infinity Scrolling for pagination",
+			// }),
 			El({
 				element: "div",
 				className:
